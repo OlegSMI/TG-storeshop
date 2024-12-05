@@ -5,7 +5,12 @@ import NavBarButton from "./shared/ui/NavBarButton/NavBarButton.vue";
 
 import CatalogCard from "./entities/ui/CatalogCard/CatalogCard.vue";
 
+import RouterItem from "./shared/ui/RouterItem/RouterItem.vue";
+
+import Header from "./widgets/header/ui/Header.vue";
+
 import testCatalogImg from "./assets/testcatalogimg.svg";
+import storeRouterIcon from "./assets/storeRouterIcon.svg";
 </script>
 
 <template>
@@ -16,6 +21,14 @@ import testCatalogImg from "./assets/testcatalogimg.svg";
   <NavBarButton name="Аксессуары" :isChecked="false" />
 
   <CatalogCard :img="testCatalogImg" />
+
+  <RouterItem
+    :img="storeRouterIcon"
+    title="Store"
+    text="Внутренний маркетплейс"
+  />
+
+  <Header />
   <!-- <div>
     <a href="https://vite.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
