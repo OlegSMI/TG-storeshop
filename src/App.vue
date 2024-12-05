@@ -9,8 +9,17 @@ import RouterItem from "./shared/ui/RouterItem/RouterItem.vue";
 
 import Header from "./widgets/header/ui/Header.vue";
 
+import BasketItem from "./entities/ui/BasketItem/BasketItem.vue";
+
+import BasketPrice from "./entities/ui/BasketPrice/BasketPrice.vue";
+
+import TextArea from "./shared/ui/TextArea/TextArea.vue";
+
+import Warning from "./shared/ui/Warning/Warning.vue";
+
 import testCatalogImg from "./assets/testcatalogimg.svg";
 import storeRouterIcon from "./assets/storeRouterIcon.svg";
+import basketItemAvatar from "./assets/basketItemAvatar.svg";
 </script>
 
 <template>
@@ -29,6 +38,20 @@ import storeRouterIcon from "./assets/storeRouterIcon.svg";
   />
 
   <Header />
+
+  <BasketItem
+    :img="basketItemAvatar"
+    title="Бейсболка BASE белая"
+    price="200"
+    :count="2"
+  />
+
+  <BasketPrice />
+
+  <TextArea />
+
+  <Warning text="Пу-пу-пу, не хватает" />
+
   <!-- <div>
     <a href="https://vite.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />

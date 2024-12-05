@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import CardButton from "../../../shared/ui/CardButton/CardButton.vue";
 defineProps<{ img: string }>();
+
+const count = 2;
 </script>
 
 <template>
@@ -9,6 +11,10 @@ defineProps<{ img: string }>();
     <div class="description">
       <p class="title">Бейсболка BASE белая</p>
       <p class="text">Бейсболка с лого AYA</p>
+    </div>
+
+    <div class="count" v-if="count > 0">
+      <p>{{ count }}</p>
     </div>
 
     <CardButton :price="100" :isChecked="false" class="button" />
@@ -21,6 +27,7 @@ defineProps<{ img: string }>();
   display: flex;
   flex-direction: column;
   align-items: start;
+  position: relative;
 
   img {
     border-radius: 12px;
@@ -41,6 +48,24 @@ defineProps<{ img: string }>();
   .text {
     color: #8e8e93;
     font-weight: 400;
+  }
+
+  .count {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #007aff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      color: white;
+      font-weight: 510;
+    }
   }
 }
 </style>

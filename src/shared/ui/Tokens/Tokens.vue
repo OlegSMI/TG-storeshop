@@ -15,6 +15,10 @@ defineProps<{ tokens: number }>();
 .tokens {
   display: flex;
   /* align-items: center; */
+  font-weight: 510;
+  font-size: 17px;
+  line-height: 18px;
+
   p {
     color: #000000;
     margin-right: 4px;
