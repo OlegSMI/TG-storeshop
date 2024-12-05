@@ -3,17 +3,18 @@ defineProps<{
   img: string;
   title: string;
   text: string;
+  route?: string;
 }>();
 </script>
 
 <template>
-  <div class="router">
+  <router-link :to="route" class="router">
     <img :src="img" alt="" />
     <div class="description">
       <p class="title">{{ title }}</p>
       <p class="text">{{ text }}</p>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style scoped>
@@ -25,7 +26,7 @@ defineProps<{
   padding: 16px;
   background-color: #efefef;
   border-radius: 12px;
-  /* margin: 6px; */
+  text-decoration: none;
 
   img {
     margin-right: 12px;
