@@ -20,6 +20,12 @@ import taskRouterIcon from "../../assets/router/taskRouterIcon.svg";
       route="/main"
     />
     <RouterItem :img="taskRouterIcon" title="Task" text="" />
+    <RouterItem
+      :img="taskRouterIcon"
+      title="All components"
+      text=""
+      route="/all-components"
+    />
   </div>
 </template>
 
