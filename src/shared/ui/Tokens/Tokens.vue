@@ -23,5 +23,10 @@ defineProps<{ tokens: number }>();
     color: #000000;
     margin-right: 4px;
   }
+
+  img {
+    widows: 18px;
+    height: 18px;
+  }
 }
 </style>

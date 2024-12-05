@@ -17,9 +17,14 @@ import TextArea from "./shared/ui/TextArea/TextArea.vue";
 
 import Warning from "./shared/ui/Warning/Warning.vue";
 
+import HistoryRouter from "./entities/ui/HistoryRouter/HistoryRouter.vue";
+
+import HistoryItem from "./entities/ui/HistoryItem/HistoryItem.vue";
+
 import testCatalogImg from "./assets/testcatalogimg.svg";
 import storeRouterIcon from "./assets/storeRouterIcon.svg";
 import basketItemAvatar from "./assets/basketItemAvatar.svg";
+import testHistoryImg from "./assets/testHistoryImg.svg";
 </script>
 
 <template>
@@ -51,6 +56,23 @@ import basketItemAvatar from "./assets/basketItemAvatar.svg";
   <TextArea />
 
   <Warning text="Пу-пу-пу, не хватает" />
+
+  <HistoryRouter />
+
+  <HistoryItem
+    :img="testHistoryImg"
+    text="Бейсболка BASE белая"
+    status="posted"
+    :price="-200"
+    :count="2"
+  />
+  <HistoryItem
+    :img="testHistoryImg"
+    text="Бейсболка BASE белая"
+    status="cancelled"
+    :price="-200"
+    :count="2"
+  />
 
   <!-- <div>
     <a href="https://vite.dev" target="_blank">
