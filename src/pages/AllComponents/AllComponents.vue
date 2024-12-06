@@ -22,6 +22,8 @@ import ProfileRouter from "../../entities/ui/ProfileRouter/ProfileRouter.vue";
 
 import ProfileInfo from "../../entities/ui/ProfileInfo/ProfileInfo.vue";
 
+import BackButton from "../../shared/ui/BackButton/BackButton.vue";
+
 import testCatalogImg from "../../assets/testcatalogimg.svg";
 // import storeRouterIcon from "../../assets/storeRouterIcon.svg";
 import basketItemAvatar from "../../assets/basketItemAvatar.svg";
@@ -61,20 +63,21 @@ import testProfileImg from "../../assets/testProfileImg.svg";
   <ProfileRouter />
 
   <!-- <HistoryItem
-    :img="testHistoryImg"
+  :img="testHistoryImg"
     text="Бейсболка BASE белая"
     status="posted"
     :price="-200"
     :count="2"
-  />
-  <HistoryItem
+    />
+    <HistoryItem
     :img="testHistoryImg"
     text="Бейсболка BASE белая"
     status="cancelled"
     :price="-200"
     :count="2"
-  /> -->
+    /> -->
 
   <ProfileInfo :img="testProfileImg" name="Fortune" :count="500" />
   <ProfileInfo name="Fortune" :count="500" />
+  <BackButton />
 </template>
