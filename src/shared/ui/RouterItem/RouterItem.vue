@@ -19,7 +19,7 @@ defineProps<{
 
 <style scoped>
 .router {
-  width: 344px;
+  width: 100%;
   /* height: 80px; */
   display: flex;
   align-items: center;
