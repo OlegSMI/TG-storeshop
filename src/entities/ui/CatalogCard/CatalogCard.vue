@@ -8,10 +8,10 @@ const count = 2;
 <template>
   <div class="card">
     <img :src="img" alt="" />
-    <div class="description">
+    <router-link :to="'/product'" class="description">
       <p class="title">Бейсболка BASE белая</p>
       <p class="text">Бейсболка с лого AYA</p>
-    </div>
+    </router-link>
 
     <div class="count" v-if="count > 0">
       <p>{{ count }}</p>
@@ -38,6 +38,7 @@ const count = 2;
     width: 100%;
     height: 56px;
     margin: 8px 0px;
+    text-decoration: none;
   }
 
   .title {
