@@ -11,7 +11,8 @@
   "dependencies": {
     "rollup": "^4.28.1",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "vue-tg": "^0.8.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.1",
