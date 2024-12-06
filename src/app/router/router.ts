@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Navigate from "../../pages/Navigate/Navigate.vue";
-import Main from "../../pages/Main/Main.vue";
-import Profile from "../../pages/Profile/Profile.vue";
-import History from "../../pages/History/History.vue";
-import Product from "../../pages/Product/Product.vue";
 import AllComponents from "../../pages/AllComponents/AllComponents.vue";
+import History from "../../pages/History/History.vue";
+import Main from "../../pages/Main/Main.vue";
+import Navigate from "../../pages/Navigate/Navigate.vue";
+import Product from "../../pages/Product/Product.vue";
+import Profile from "../../pages/Profile/Profile.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "/", component: Navigate },

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HistoryItem from "../../../entities/ui/HistoryItem/HistoryItem.vue";
 import testHistoryImg from "../../assets/testHistoryImg.svg";
+import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
 </script>
 
 <template>
