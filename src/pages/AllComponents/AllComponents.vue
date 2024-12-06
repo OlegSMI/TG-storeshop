@@ -18,14 +18,13 @@ import Warning from "../../shared/ui/Warning/Warning.vue";
 
 import ProfileRouter from "../../entities/ui/ProfileRouter/ProfileRouter.vue";
 
-import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
+// import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
 
 import ProfileInfo from "../../entities/ui/ProfileInfo/ProfileInfo.vue";
 
 import testCatalogImg from "../../assets/testcatalogimg.svg";
 // import storeRouterIcon from "../../assets/storeRouterIcon.svg";
 import basketItemAvatar from "../../assets/basketItemAvatar.svg";
-import testHistoryImg from "../../assets/testHistoryImg.svg";
 import testProfileImg from "../../assets/testProfileImg.svg";
 </script>
 
@@ -61,7 +60,7 @@ import testProfileImg from "../../assets/testProfileImg.svg";
 
   <ProfileRouter />
 
-  <HistoryItem
+  <!-- <HistoryItem
     :img="testHistoryImg"
     text="Бейсболка BASE белая"
     status="posted"
@@ -74,7 +73,7 @@ import testProfileImg from "../../assets/testProfileImg.svg";
     status="cancelled"
     :price="-200"
     :count="2"
-  />
+  /> -->
 
   <ProfileInfo :img="testProfileImg" name="Fortune" :count="500" />
   <ProfileInfo name="Fortune" :count="500" />

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import testHistoryImg from "../../assets/testHistoryImg.svg";
-import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
+// import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
 </script>
 
 <template>
@@ -10,7 +9,7 @@ import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
       <p class="date">19 сентября 2024</p>
     </div>
     <div class="history-items">
-      <HistoryItem
+      <!-- <HistoryItem
         :img="testHistoryImg"
         text="Бейсболка BASE белая"
         status="posted"
@@ -23,7 +22,7 @@ import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
         status="cancelled"
         :price="-200"
         :count="2"
-      />
+      /> -->
     </div>
   </div>
 </template>
