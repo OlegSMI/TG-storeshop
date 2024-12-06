@@ -1,28 +1,31 @@
 <script setup lang="ts">
 import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
 
-import delItemIconWhite from "../../../shared/assets/delItemIcon-white.svg";
+// Импортируйте и определите иконки
 import addItemIconWhite from "../../../shared/assets/addItemIcon-white.svg";
+import delItemIconWhite from "../../../shared/assets/delItemIcon-white.svg";
 
-defineProps<{
+interface Props {
   img: string;
   title: string;
   price: string;
   count: number;
-}>();
+}
+
+const props = defineProps<Props>();
 </script>
 
 <template>
   <div class="basket-item">
-    <img :src="img" alt="" />
+    <img :src="props.img" alt="Image of {{ props.title }}" />
     <div class="description">
-      <p class="title">{{ title }}</p>
-      <Tokens :tokens="price" />
+      <p class="title">{{ props.title }}</p>
+      <Tokens :tokens="Number(props.price)" />
     </div>
     <button class="count">
-      <img :src="delItemIconWhite" alt="" />
-      <p>{{ count }}</p>
-      <img :src="addItemIconWhite" alt="" />
+      <img :src="delItemIconWhite" alt="Удалить" />
+      <p>{{ props.count }}</p>
+      <img :src="addItemIconWhite" alt="Добавить" />
     </button>
   </div>
 </template>

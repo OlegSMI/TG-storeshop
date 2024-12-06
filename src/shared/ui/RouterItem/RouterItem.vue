@@ -3,7 +3,7 @@ defineProps<{
   img: string;
   title: string;
   text: string;
-  route?: string;
+  route: string;
 }>();
 </script>
 

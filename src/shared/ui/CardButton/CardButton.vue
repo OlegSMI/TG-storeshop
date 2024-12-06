@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import tokenItemBlue from "../../assets/tokenIcon-blue.svg";
-import tokenItemWhite from "../../assets/tokenIcon-white.svg";
-import delItemIconWhite from "../../assets/delItemIcon-white.svg";
 import addItemIconBlue from "../../assets/addItemIcon-blue.svg";
 import addItemIconWhite from "../../assets/addItemIcon-white.svg";
+import delItemIconWhite from "../../assets/delItemIcon-white.svg";
+import tokenItemBlue from "../../assets/tokenIcon-blue.svg";
+import tokenItemWhite from "../../assets/tokenIcon-white.svg";
 
 defineProps<{
   price: number;
@@ -18,7 +18,7 @@ defineProps<{
       backgroundColor: isChecked ? '#007aff' : '#efefef',
     }"
   >
-    <img :src="isChecked && delItemIconWhite" alt="" />
+    <img :src="isChecked ? delItemIconWhite : ''" alt="" />
     {{ price }}
     <img :src="isChecked ? tokenItemWhite : tokenItemBlue" alt="" />
     <img :src="isChecked ? addItemIconWhite : addItemIconBlue" alt="" />
