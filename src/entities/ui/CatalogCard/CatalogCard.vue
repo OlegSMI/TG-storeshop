@@ -7,10 +7,12 @@ const count = 2;
 
 <template>
   <div class="card">
-    <img :src="img" alt="" />
-    <router-link :to="'/product'" class="description">
-      <p class="title">Бейсболка BASE белая</p>
-      <p class="text">Бейсболка с лого AYA</p>
+    <router-link :to="'/product'" class="router">
+      <img :src="img" alt="" />
+      <div class="description">
+        <p class="title">Бейсболка BASE белая</p>
+        <p class="text">Бейсболка с лого AYA</p>
+      </div>
     </router-link>
 
     <div class="count" v-if="count > 0">
@@ -23,22 +25,26 @@ const count = 2;
 
 <style scoped>
 .card {
-  width: 163px;
+  /* width: 163px; */
   display: flex;
   flex-direction: column;
   align-items: start;
   position: relative;
 
+  .router {
+    text-decoration: none;
+  }
+
   img {
     border-radius: 12px;
-    width: 100%;
+    width: 163px;
+    height: 200px;
   }
 
   .description {
     width: 100%;
     height: 56px;
     margin: 8px 0px;
-    text-decoration: none;
   }
 
   .title {

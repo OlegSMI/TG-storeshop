@@ -7,7 +7,7 @@ import testCatalogImg from "../../assets/testcatalogimg.svg";
 </script>
 
 <template>
-  <div>
+  <div class="main">
     <Header />
     <NavBar />
     <div class="catalog">
@@ -19,11 +19,14 @@ import testCatalogImg from "../../assets/testcatalogimg.svg";
   </div>
 </template>
 <style scoped>
+.main {
+  padding: 16px;
+}
 .catalog {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   gap: 17px;
-  padding: 16px;
+  padding: 16px 0 0 0;
 }
 </style>
