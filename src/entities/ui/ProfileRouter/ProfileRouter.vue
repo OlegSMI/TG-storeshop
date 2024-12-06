@@ -4,7 +4,7 @@ import arrowIcon from "./assets/arrow.svg";
 </script>
 
 <template>
-  <div class="history-router">
+  <router-link :to="'/history'" class="history-router">
     <div class="description">
       <img :src="historyIcon" class="historyIcon" alt="" />
       <p>История заказов</p>
@@ -12,7 +12,7 @@ import arrowIcon from "./assets/arrow.svg";
     <div>
       <img :src="arrowIcon" alt="" />
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style scoped>
@@ -23,6 +23,7 @@ import arrowIcon from "./assets/arrow.svg";
   padding: 16px;
   border-radius: 10px;
   background-color: #efefef;
+  text-decoration: none;
 }
 
 .description {

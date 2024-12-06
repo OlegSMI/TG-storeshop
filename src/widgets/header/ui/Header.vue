@@ -15,7 +15,9 @@ import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
     </div>
     <div class="user">
       <Tokens :tokens="500" />
-      <img :src="avatarIcon" class="avatar" alt="" />
+      <router-link :to="'/profile'" class="avatar">
+        <img :src="avatarIcon" alt="" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -45,6 +47,7 @@ import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
 
 .avatar {
   margin-left: 11px;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;

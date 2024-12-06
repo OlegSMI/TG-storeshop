@@ -16,7 +16,7 @@ import TextArea from "../../shared/ui/TextArea/TextArea.vue";
 
 import Warning from "../../shared/ui/Warning/Warning.vue";
 
-import HistoryRouter from "../../entities/ui/HistoryRouter/HistoryRouter.vue";
+import ProfileRouter from "../../entities/ui/ProfileRouter/ProfileRouter.vue";
 
 import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
 
@@ -59,7 +59,7 @@ import testProfileImg from "../../assets/testProfileImg.svg";
 
   <Warning text="Пу-пу-пу, не хватает" />
 
-  <HistoryRouter />
+  <ProfileRouter />
 
   <HistoryItem
     :img="testHistoryImg"
