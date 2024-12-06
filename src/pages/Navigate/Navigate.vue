@@ -32,7 +32,9 @@ import taskRouterIcon from "../../assets/router/taskRouterIcon.svg";
 
 <style scoped>
 .navigate {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 </style>
