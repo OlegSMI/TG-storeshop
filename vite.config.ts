@@ -11,18 +11,21 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   const isDevelopment = mode === "development";
 
-  const SSLkey = fs.readFileSync("ssl-key.pem");
-  const SSLcert = fs.readFileSync("ssl.pem");
+  let serverConfig;
+  if (isDevelopment) {
+    const SSLkey = fs.readFileSync("ssl-key.pem");
+    const SSLcert = fs.readFileSync("ssl.pem");
 
-  const serverConfig = {
-    https: {
-      key: SSLkey,
-      cert: SSLcert,
-    },
-    host: env.VITE_IP,
-    port: 3000,
-    open: true,
-  };
+    serverConfig = {
+      https: {
+        key: SSLkey,
+        cert: SSLcert,
+      },
+      host: env.VITE_IP,
+      port: 3000,
+      open: true,
+    };
+  }
 
   return {
     plugins: [vue()],
