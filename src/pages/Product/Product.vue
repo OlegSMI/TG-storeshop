@@ -10,7 +10,7 @@ import testProductIcon from "../../assets/testProductIcon.svg";
       <img :src="testProductIcon" alt="" />
     </div>
     <h1>Бейсболка BASE белая</h1>
-    <CardButton :price="100" :isChecked="false" />
+    <CardButton :price="100" :isChecked="false" class="button" />
     <div class="description">
       <p>
         Плотная жаккардовая бейсболка с лого AYA синего цвета с застежкой на
@@ -31,16 +31,20 @@ import testProductIcon from "../../assets/testProductIcon.svg";
 
 <style scoped>
 .product {
-  width: 375px;
+  /* width: 100%; */
+  padding: 16px;
   /* display: flex; */
   /* flex-direction: row; */
   /* align-items: center; */
 }
 
+.button {
+  margin: 8px 0;
+}
 .images {
-  /* width: 375px; */
   display: flex;
-  overflow: auto;
+  overflow-x: auto;
+  white-space: nowrap;
   gap: 12px;
 
   img {
@@ -51,6 +55,7 @@ import testProductIcon from "../../assets/testProductIcon.svg";
 }
 
 .description {
+  width: 100%;
   p {
     color: #000000;
     font-weight: 400;

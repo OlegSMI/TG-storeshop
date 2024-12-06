@@ -1,5 +1,7 @@
 <script setup lang="ts">
-// import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
+import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
+
+import testHistoryImg from "../../assets/testHistoryImg.svg";
 </script>
 
 <template>
@@ -9,7 +11,7 @@
       <p class="date">19 сентября 2024</p>
     </div>
     <div class="history-items">
-      <!-- <HistoryItem
+      <HistoryItem
         :img="testHistoryImg"
         text="Бейсболка BASE белая"
         status="posted"
@@ -22,7 +24,7 @@
         status="cancelled"
         :price="-200"
         :count="2"
-      /> -->
+      />
     </div>
   </div>
 </template>
@@ -30,7 +32,7 @@
 <style scoped>
 .history {
   color: #8e8e93;
-  width: 375px;
+  padding: 16px;
 
   h1 {
     padding: 16px 16px 8px 0;

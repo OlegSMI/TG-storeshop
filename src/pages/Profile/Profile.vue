@@ -15,7 +15,10 @@ import ProfileRouter from "../../entities/ui/ProfileRouter/ProfileRouter.vue";
 
 <style scoped>
 .profile {
-  width: 375px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 .heading {
   font-weight: 510;
