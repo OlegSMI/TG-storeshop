@@ -1,0 +1,40 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: SSH to server and deploy
+        uses: appleboy/ssh-action@v0.1.0
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
+          script: |
+            if ! command -v docker &> /dev/null; then
+              echo "Docker не установлен. Устанавливаем..."
+              curl -fsSL https://get.docker.com -o get-docker.sh
+              sh get-docker.sh
+            fi
+
+            cd /path/to/your/app
+
+            git pull origin $GITHUB_REF
+
+            docker build -t vue-app .
+
+            docker stop vue-app || true
+            docker rm vue-app || true
+
+            docker run -d --name vue-app -p 80:80 vue-app
