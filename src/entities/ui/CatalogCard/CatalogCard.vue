@@ -1,33 +1,52 @@
 <script setup lang="ts">
+import { computed } from "vue";
+import { useBasketStore } from "../../../app/store/useBasketStore";
 import CardButton from "../../../shared/ui/CardButton/CardButton.vue";
-defineProps<{ img: string }>();
+const props = defineProps<{
+  id: string;
+  name: string;
+  desc: string;
+  price: number;
+  imgSrc: string;
+}>();
+// const count = 1;
+const { existingItem, addItem } = useBasketStore();
+const count = computed(() => existingItem(props.id).value?.quantity || 0);
 
-const count = 2;
+const handleAddProductCart = () => {
+  addItem({ id: props.id, name: props.name, price: props.price });
+  console.log(count);
+};
 </script>
 
 <template>
   <div class="card">
     <router-link :to="'/product'" class="router">
-      <img :src="img" alt="" />
+      <div class="imgWrapper"><img :src="imgSrc" alt="" /></div>
       <div class="description">
-        <p class="title">Бейсболка BASE белая</p>
+        <p class="title">{{ name }}</p>
         <p class="text">
-          Бейсболка с лого AYA ad sa d sad sa d sa dasdas d sad sad sad
+          {{ desc }}
         </p>
       </div>
     </router-link>
 
-    <div class="count" v-if="count > 0">
+    <div class="count" :class="{ 'count--visible': count > 0 }">
       <p>{{ count }}</p>
     </div>
 
-    <CardButton :price="100" :isChecked="false" class="button" />
+    <CardButton
+      @addProductCart="handleAddProductCart"
+      :price="100"
+      :isChecked="false"
+      class="button"
+    />
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .card {
-  width: 163px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -38,10 +57,15 @@ const count = 2;
     text-decoration: none;
   }
 
-  img {
+  .imgWrapper {
     border-radius: 12px;
-    width: 163px;
-    height: 200px;
+    width: 100%;
+    // height: 200px;
+    img {
+      border-radius: 12px;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .description {
@@ -85,6 +109,14 @@ const count = 2;
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0; /* Скрыть по умолчанию */
+    transform: scale(0); /* Начальное состояние для анимации */
+    transition: opacity 0.2s ease, transform 0.2s ease; /* Плавный переход */
+
+    &.count--visible {
+      opacity: 1; /* Показать при наличии */
+      transform: scale(1); /* Увеличение при появлении */
+    }
 
     p {
       color: white;

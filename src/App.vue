@@ -3,8 +3,6 @@ import { computed } from "vue";
 import { useWebAppTheme } from "vue-tg";
 import { detectDevice } from "./app/config";
 
-const { onThemeChanged } = useWebAppTheme();
-
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 
 const deviceInfo = computed(() =>
@@ -13,10 +11,12 @@ const deviceInfo = computed(() =>
     : "noiosDeviceScheme"
 );
 
-onThemeChanged(() => {
-  console.log(colorScheme.value);
-  console.log(deviceInfo.value);
-});
+const mainButton = window.Telegram.WebApp.MainButton;
+
+const { onThemeChanged } = useWebAppTheme();
+onThemeChanged(
+  () => (mainButton.color = colorScheme.value == "dark" ? "#3e88f7" : "#007aff")
+);
 </script>
 
 <template>

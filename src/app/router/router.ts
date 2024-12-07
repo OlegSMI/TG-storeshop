@@ -6,6 +6,8 @@ import Product from "../../pages/Product/Product.vue";
 import Profile from "../../pages/Profile/Profile.vue";
 
 import AllComponents from "../../pages/AllComponents/AllComponents.vue";
+import Basket from "../../pages/Basket/Basket.vue";
+import Task from "../../pages/Task/Task.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "/", component: Navigate },
@@ -14,6 +16,8 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/profile", component: Profile },
   { path: "/history", component: History },
   { path: "/product", component: Product },
+  { path: "/task", component: Task },
+  { path: "/basket", component: Basket },
 ];
 
 const router = createRouter({

@@ -17,6 +17,7 @@ defineProps<{
       color: isChecked ? 'white' : '#007aff',
       backgroundColor: isChecked ? '#007aff' : '#efefef',
     }"
+    @click="$emit('addProductCart')"
   >
     <img :src="isChecked ? delItemIconWhite : ''" alt="" />
     {{ price }}

@@ -11,23 +11,69 @@ const catalogStore = useCatalogStore();
 onMounted(() => {
   catalogStore.fetchCatalogItems(); // Запрашиваем данные при монтировании компонента
 });
+
+const items = [
+  {
+    id: "1",
+    name: "Бейсболка BASE белая",
+    description:
+      "Бейсболка с лого AYA ad sa d sad sa d sa dasdas d sad sad sad",
+    price: 100,
+    imgSrc: testCatalogImg,
+  },
+  {
+    id: "2",
+    name: "Бейсболка BASE белая",
+    description:
+      "Бейсболка с лого AYA ad sa d sad sa d sa dasdas d sad sad sad",
+    price: 100,
+    imgSrc: testCatalogImg,
+  },
+  {
+    id: "3",
+    name: "Бейсболка BASE белая",
+    description:
+      "Бейсболка с лого AYA ad sa d sad sa d sa dasdas d sad sad sad",
+    price: 100,
+    imgSrc: testCatalogImg,
+  },
+  {
+    id: "4",
+    name: "Бейсболка BASE белая",
+    description:
+      "Бейсболка с лого AYA ad sa d sad sa d sa dasdas d sad sad sad",
+    price: 100,
+    imgSrc: testCatalogImg,
+  },
+  {
+    id: "5",
+    name: "Бейсболка BASE белая",
+    description:
+      "Бейсболка с лого AYA ad sa d sad sa d sa dasdas d sad sad sad",
+    price: 100,
+    imgSrc: testCatalogImg,
+  },
+  {
+    id: "6",
+    name: "Бейсболка BASE белая",
+    description:
+      "Бейсболка с лого AYA ad sa d sad sa d sa dasdas d sad sad sad",
+    price: 100,
+    imgSrc: testCatalogImg,
+  },
+];
 </script>
 
 <template>
   <div class="catalog">
-    <!-- <div v-if="catalogStore.loading" class="info">Загрузка...</div>
-    <div v-if="catalogStore.error" class="info">
-      Ошибка: {{ catalogStore.error.message }}
-    </div> -->
-
-    <!-- <CatalogCard
-      v-for="item in catalogStore.items"
-      :key="item.id"
-      :img="testCatalogImg"
-    /> -->
-    <CatalogCard :img="testCatalogImg" />
-    <CatalogCard :img="testCatalogImg" />
-    <CatalogCard :img="testCatalogImg" />
+    <CatalogCard
+      v-for="item in items"
+      :id="item.id"
+      :name="item.name"
+      :desc="item.description"
+      :price="item.price"
+      :imgSrc="item.imgSrc"
+    />
   </div>
 </template>
 
@@ -36,11 +82,7 @@ onMounted(() => {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  gap: 17px;
-  padding: 16px 0 0 0;
-
-  .info {
-    color: #000000;
-  }
+  gap: 16px;
+  padding: 16px;
 }
 </style>

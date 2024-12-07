@@ -14,7 +14,7 @@ const routerItems = [
     img: kitchenRouterIcon,
     title: "Kitchen",
     text: "Бронирования еды и столов",
-    route: "/main",
+    route: "/task",
   },
   {
     img: storeRouterIcon,
@@ -26,7 +26,7 @@ const routerItems = [
     img: taskRouterIcon,
     title: "Task",
     text: "",
-    route: "/",
+    route: "/task",
   },
   {
     img: taskRouterIcon,

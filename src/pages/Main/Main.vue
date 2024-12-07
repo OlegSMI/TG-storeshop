@@ -7,7 +7,7 @@ import { Catalog, Header } from "../../widgets";
 // import Catalog from "../../widgets/Catalog/Catalog.vue";
 
 const mainButtonHandler = () => {
-  console.log("main");
+  router.push("/basket");
 };
 </script>
 
@@ -20,8 +20,4 @@ const mainButtonHandler = () => {
     <Catalog />
   </div>
 </template>
-<style scoped>
-.main {
-  padding: 16px;
-}
-</style>
+<style scoped></style>
