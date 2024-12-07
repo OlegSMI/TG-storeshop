@@ -7,11 +7,11 @@ export default defineConfig({
   plugins: [vue()],
   server: {
     https: {
-      key: fs.readFileSync("192.168.0.157-key.pem"),
-      cert: fs.readFileSync("192.168.0.157.pem"),
+      key: fs.readFileSync("172.22.96.1-key.pem"),
+      cert: fs.readFileSync("172.22.96.1.pem"),
     },
     // host: import.meta.env.VITE_IP,
-    host: "192.168.0.157",
+    host: "172.22.96.1",
     port: 3000,
     open: true, // Автоматически открывать браузер при запуске
   },
