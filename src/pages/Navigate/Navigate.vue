@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import RouterItem from "../../shared/ui/RouterItem/RouterItem.vue";
 
-import { BackButton, MainButton, useWebAppTheme } from "vue-tg";
+import { useWebAppTheme } from "vue-tg";
 import kitchenRouterIcon from "../../assets/router/kitchenRouterIcon.svg";
 import storeRouterIcon from "../../assets/router/storeRouterIcon.svg";
 import taskRouterIcon from "../../assets/router/taskRouterIcon.svg";
 console.log(useWebAppTheme());
 
-function handleMainButton() {}
-
-function handlerBackButton() {
-  router.go(-1);
-}
+const isDev = import.meta.env.DEV;
 
 const routerItems = [
   {
@@ -37,23 +33,24 @@ const routerItems = [
     title: "All components",
     text: "",
     route: "/all-components",
+    mode: !isDev,
   },
 ];
 </script>
 
 <template>
   <div class="navigate">
-    <RouterItem
-      v-for="item in routerItems"
-      :key="item.route"
-      :img="item.img"
-      :title="item.title"
-      :text="item.text"
-      :route="item.route"
-    />
+    <div v-for="item in routerItems">
+      <RouterItem
+        v-if="!item.mode"
+        :key="item.route"
+        :img="item.img"
+        :title="item.title"
+        :text="item.text"
+        :route="item.route"
+      />
+    </div>
   </div>
-  <MainButton text="you loserino" @click="handleMainButton" />
-  <BackButton @click="handlerBackButton" />
 </template>
 
 <style scoped>

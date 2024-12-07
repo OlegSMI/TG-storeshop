@@ -22,16 +22,18 @@ import ProfileRouter from "../../entities/ui/ProfileRouter/ProfileRouter.vue";
 
 import ProfileInfo from "../../entities/ui/ProfileInfo/ProfileInfo.vue";
 
-import BackButton from "../../shared/ui/BackButton/BackButton.vue";
-
 import testCatalogImg from "../../assets/testcatalogimg.svg";
 // import storeRouterIcon from "../../assets/storeRouterIcon.svg";
+import { BackButton, MainButton } from "vue-tg";
+import router from "../../app/router/router";
 import basketItemAvatar from "../../assets/basketItemAvatar.svg";
 import testProfileImg from "../../assets/testProfileImg.svg";
 </script>
 
 <template>
   <!-- <div>adsads</div> -->
+  <MainButton text="allcomponents" />
+  <BackButton @click="router.go(-1)" />
   <CardButton :price="100" :isChecked="false" />
   <CardButton :price="100" :isChecked="true" />
   <NavBarButton name="Одежда" :isChecked="true" />
@@ -79,5 +81,4 @@ import testProfileImg from "../../assets/testProfileImg.svg";
 
   <ProfileInfo :img="testProfileImg" name="Fortune" :count="500" />
   <ProfileInfo name="Fortune" :count="500" />
-  <BackButton />
 </template>

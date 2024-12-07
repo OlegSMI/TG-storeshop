@@ -39,13 +39,13 @@ export default defineConfig(({ mode }) => {
         "@widgets": path.resolve(__dirname, "src/widgets"),
       },
     },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@import "./src/app/styles/_variables.scss"; ',
-        },
-      },
-    },
+    // css: {
+    //   preprocessorOptions: {
+    //     scss: {
+    //       additionalData: '@import "./src/app/styles/_variables.scss"; ',
+    //     },
+    //   },
+    // },
     envPrefix: "VITE_",
   };
 });

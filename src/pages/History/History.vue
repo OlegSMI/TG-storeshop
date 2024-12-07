@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
 
+import { BackButton, MainButton } from "vue-tg";
+import router from "../../app/router/router";
 import testHistoryImg from "../../assets/testHistoryImg.svg";
 </script>
 
@@ -27,6 +29,8 @@ import testHistoryImg from "../../assets/testHistoryImg.svg";
       />
     </div>
   </div>
+  <MainButton text="product" />
+  <BackButton @click="router.go(-1)" />
 </template>
 
 <style scoped>
