@@ -2,8 +2,6 @@
 import CardButton from "../../shared/ui/CardButton/CardButton.vue";
 import NavBarButton from "../../shared/ui/NavBarButton/NavBarButton.vue";
 
-import CatalogCard from "../../entities/ui/CatalogCard/CatalogCard.vue";
-
 // import RouterItem from "../../shared/ui/RouterItem/RouterItem.vue";
 
 import Header from "../../widgets/ui/Header/Header.vue";
@@ -22,7 +20,6 @@ import ProfileRouter from "../../entities/ui/ProfileRouter/ProfileRouter.vue";
 
 import ProfileInfo from "../../entities/ui/ProfileInfo/ProfileInfo.vue";
 
-import testCatalogImg from "../../assets/testcatalogimg.svg";
 // import storeRouterIcon from "../../assets/storeRouterIcon.svg";
 import { BackButton, MainButton } from "vue-tg";
 import router from "../../app/router/router";
@@ -39,7 +36,7 @@ import testProfileImg from "../../assets/testProfileImg.svg";
   <NavBarButton name="Одежда" :isChecked="true" />
   <NavBarButton name="Аксессуары" :isChecked="false" />
 
-  <CatalogCard :img="testCatalogImg" />
+  <!-- <CatalogCard :img="testCatalogImg" /> -->
 
   <!-- <RouterItem
     :img="storeRouterIcon"

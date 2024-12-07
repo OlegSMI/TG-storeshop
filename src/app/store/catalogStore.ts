@@ -19,10 +19,11 @@ export const useCatalogStore = defineStore("catalog", () => {
     error.value = null;
 
     try {
-      const response = await getCatalogItems("ВЫБРАННАЯ_КАТЕГОРИЯ_NUMBER");
-      items.value = response.data;
+      const response = await getCatalogItems(1);
+      items.value = response;
     } catch (err) {
-      error.value = err;
+      // error.value = err;
+      console.log(err);
     } finally {
       loading.value = false;
     }

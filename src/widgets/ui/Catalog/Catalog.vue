@@ -2,9 +2,8 @@
 import { onMounted } from "vue";
 
 import { useCatalogStore } from "../../../app/store/catalogStore";
-import { CatalogCard } from "../../../entities";
-
 import testCatalogImg from "../../../assets/testcatalogimg.svg";
+import CatalogCard from "../../../entities/ui/CatalogCard/CatalogCard.vue";
 
 const catalogStore = useCatalogStore();
 

@@ -3,7 +3,9 @@
 import { BackButton, MainButton } from "vue-tg";
 import router from "../../app/router/router";
 import NavBar from "../../entities/ui/NavBar/NavBar.vue";
-import { Catalog, Header } from "../../widgets";
+// import Header from "../../widgets/header/ui/Header.vue";
+import Catalog from "../../widgets/ui/Catalog/Catalog.vue";
+import Header from "../../widgets/ui/Header/Header.vue";
 // import Catalog from "../../widgets/Catalog/Catalog.vue";
 
 const mainButtonHandler = () => {

@@ -23,18 +23,18 @@ export const useBasketStore = defineStore("basket", () => {
     }
   }
 
-  function removeItem(productId: number) {
+  function removeItem(productId: string) {
     items.value = items.value.filter((item) => item.id !== productId);
   }
 
-  function incrementItemQuantity(productId: number) {
+  function incrementItemQuantity(productId: string) {
     const existingItem = items.value.find((item) => item.id === productId);
     if (existingItem) {
       existingItem.quantity!++;
     }
   }
 
-  function decrementItemQuantity(productId: number) {
+  function decrementItemQuantity(productId: string) {
     const existingItem = items.value.find((item) => item.id === productId);
     if (existingItem) {
       existingItem.quantity!--;
