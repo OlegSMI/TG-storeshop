@@ -11,7 +11,9 @@ const count = 2;
       <img :src="img" alt="" />
       <div class="description">
         <p class="title">Бейсболка BASE белая</p>
-        <p class="text">Бейсболка с лого AYA</p>
+        <p class="text">
+          Бейсболка с лого AYA ad sa d sad sa d sa dasdas d sad sad sad
+        </p>
       </div>
     </router-link>
 
@@ -25,7 +27,7 @@ const count = 2;
 
 <style scoped>
 .card {
-  /* width: 163px; */
+  width: 163px;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -45,16 +47,30 @@ const count = 2;
     width: 100%;
     height: 56px;
     margin: 8px 0px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
   }
 
   .title {
     color: #000000;
     font-weight: 510;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    white-space: normal;
   }
 
   .text {
+    margin-top: 4px;
     color: #8e8e93;
     font-weight: 400;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
   }
 
   .count {

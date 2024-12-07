@@ -20,14 +20,14 @@ onMounted(() => {
       Ошибка: {{ catalogStore.error.message }}
     </div> -->
 
-    <CatalogCard
+    <!-- <CatalogCard
       v-for="item in catalogStore.items"
       :key="item.id"
       :img="testCatalogImg"
-    />
-    <!-- <CatalogCard :img="testCatalogImg" />
+    /> -->
     <CatalogCard :img="testCatalogImg" />
-    <CatalogCard :img="testCatalogImg" /> -->
+    <CatalogCard :img="testCatalogImg" />
+    <CatalogCard :img="testCatalogImg" />
   </div>
 </template>
 
