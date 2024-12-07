@@ -6,7 +6,7 @@ import CatalogCard from "../../entities/ui/CatalogCard/CatalogCard.vue";
 
 // import RouterItem from "../../shared/ui/RouterItem/RouterItem.vue";
 
-import Header from "../../widgets/header/ui/Header.vue";
+import Header from "../../widgets/ui/Header/Header.vue";
 
 import BasketItem from "../../entities/ui/BasketItem/BasketItem.vue";
 

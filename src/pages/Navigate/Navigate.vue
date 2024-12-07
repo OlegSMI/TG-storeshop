@@ -35,6 +35,6 @@ import taskRouterIcon from "../../assets/router/taskRouterIcon.svg";
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 100%;
+  padding: 16px;
 }
 </style>

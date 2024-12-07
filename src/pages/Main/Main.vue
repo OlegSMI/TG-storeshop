@@ -1,32 +1,19 @@
 <script setup lang="ts">
-import Header from "../../widgets/header/ui/Header.vue";
+// import Header from "../../widgets/ui/Header/Header.vue";
+import { Header, Catalog } from "../../widgets";
 import NavBar from "../../entities/ui/NavBar/NavBar.vue";
-import CatalogCard from "../../entities/ui/CatalogCard/CatalogCard.vue";
-
-import testCatalogImg from "../../assets/testcatalogimg.svg";
+// import Catalog from "../../widgets/Catalog/Catalog.vue";
 </script>
 
 <template>
   <div class="main">
     <Header />
     <NavBar />
-    <div class="catalog">
-      <CatalogCard :img="testCatalogImg" />
-      <CatalogCard :img="testCatalogImg" />
-      <CatalogCard :img="testCatalogImg" />
-      <CatalogCard :img="testCatalogImg" />
-    </div>
+    <Catalog />
   </div>
 </template>
 <style scoped>
 .main {
   padding: 16px;
-}
-.catalog {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  gap: 17px;
-  padding: 16px 0 0 0;
 }
 </style>
