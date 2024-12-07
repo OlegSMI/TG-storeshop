@@ -1,6 +1,7 @@
 import { createApp } from "vue";
-import "./style.css";
+import { VueTelegramPlugin } from "vue-tg";
 import App from "./App.vue";
 import router from "./app/router/router";
+import "./style.css";
 
-createApp(App).use(router).mount("#app");
+createApp(App).use(router).use(VueTelegramPlugin).mount("#app");
