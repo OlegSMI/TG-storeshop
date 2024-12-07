@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { BackButton, MainButton, useWebAppTheme } from "vue-tg";
+import router from "./app/router/router";
+console.log(useWebAppTheme());
+</script>
 
 <template>
   <router-view></router-view>
