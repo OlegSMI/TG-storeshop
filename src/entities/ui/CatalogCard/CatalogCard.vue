@@ -32,6 +32,7 @@ const count = 2;
   flex-direction: column;
   align-items: start;
   position: relative;
+  padding: 0 0 16px 0;
 
   .router {
     text-decoration: none;
