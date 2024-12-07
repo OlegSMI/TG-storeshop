@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
-
 import { BackButton, MainButton } from "vue-tg";
 import router from "../../app/router/router";
 import testHistoryImg from "../../assets/testHistoryImg.svg";
+import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
 </script>
 
 <template>
