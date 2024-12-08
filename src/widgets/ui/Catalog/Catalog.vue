@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 
-import { useCatalogStore } from "../../../app/store/useCatalogStore";
-import testCatalogImg from "../../../assets/testcatalogimg.svg";
-import CatalogCard from "../../../entities/ui/CatalogCard/CatalogCard.vue";
+import { useCatalogStore } from "@app/store/useCatalogStore";
+import testCatalogImg from "@assets/testcatalogimg.svg";
+import CatalogCard from "@entities/ui/CatalogCard/CatalogCard.vue";
 
 const catalogStore = useCatalogStore();
 

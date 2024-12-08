@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import backButton from "../../assets/backButton.svg";
+import backButton from "@assets/backButton.svg";
 </script>
 
 <template>

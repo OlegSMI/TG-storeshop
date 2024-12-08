@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import testHistoryImg from "../../assets/testHistoryImg.svg";
+import testHistoryImg from "@assets/testHistoryImg.svg";
 import HistoryItem from "./HistoryItem.vue";
 </script>
 

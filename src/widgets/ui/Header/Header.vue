@@ -3,7 +3,7 @@ import logo from "./assets/logo.svg";
 import fence from "./assets/fence.svg";
 import avatarIcon from "./assets/avatar.svg";
 
-import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
+import Tokens from "@shared/ui/Tokens/Tokens.vue";
 </script>
 
 <template>

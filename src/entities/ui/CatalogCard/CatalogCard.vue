@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useBasketStore } from "../../../app/store/useBasketStore";
-import CardButton from "../../../shared/ui/CardButton/CardButton.vue";
+import { useBasketStore } from "@app/store/useBasketStore";
+import CardButton from "@shared/ui/CardButton/CardButton.vue";
 const props = defineProps<{
   id: string;
   name: string;

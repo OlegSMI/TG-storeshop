@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
+import Tokens from "@shared/ui/Tokens/Tokens.vue";
 // defineProps<{ price: number }>();
 </script>
 

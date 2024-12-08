@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { BackButton, MainButton } from "vue-tg";
-import router from "../../../app/router/router";
-import testProductIcon from "../../../assets/testProductIcon.svg";
-import CardButton from "../../../shared/ui/CardButton/CardButton.vue";
+import router from "@app/router/router";
+import testProductIcon from "@assets/testProductIcon.svg";
+import CardButton from "@shared/ui/CardButton/CardButton.vue";
 </script>
 
 <template>

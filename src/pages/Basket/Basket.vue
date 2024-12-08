@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { BackButton, MainButton } from "vue-tg";
-import router from "../../app/router/router";
-import ProfileInfo from "../../entities/ui/ProfileInfo/ProfileInfo.vue";
-import ProfileRouter from "../../entities/ui/ProfileRouter/ProfileRouter.vue";
+import router from "@app/router/router";
+import ProfileInfo from "@entities/ui/ProfileInfo/ProfileInfo.vue";
+import ProfileRouter from "@entities/ui/ProfileRouter/ProfileRouter.vue";
 </script>
 
 <template>
-  <MainButton text="Оформить заказ" />
-  <BackButton @click="router.go(-1)" />
-  <div class="profile">
-    <ProfileInfo name="Fortune" :count="500" />
-    <div class="items">
-      <p class="heading">AYA Store</p>
-      <ProfileRouter />
+  <div>
+    <MainButton text="Оформить заказ" />
+    <BackButton @click="router.go(-1)" />
+    <div class="profile">
+      <ProfileInfo name="Fortune" :count="500" />
+      <div class="items">
+        <p class="heading">AYA Store</p>
+        <ProfileRouter />
+      </div>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavBarButton from "../../../shared/ui/NavBarButton/NavBarButton.vue";
+import NavBarButton from "@shared/ui/NavBarButton/NavBarButton.vue";
 </script>
 
 <template>

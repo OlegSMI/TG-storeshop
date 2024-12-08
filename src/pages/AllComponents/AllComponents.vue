@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import CardButton from "../../shared/ui/CardButton/CardButton.vue";
-import NavBarButton from "../../shared/ui/NavBarButton/NavBarButton.vue";
+import CardButton from "@shared/ui/CardButton/CardButton.vue";
+import NavBarButton from "@shared/ui/NavBarButton/NavBarButton.vue";
 
 // import RouterItem from "../../shared/ui/RouterItem/RouterItem.vue";
 
-import Header from "../../widgets/ui/Header/Header.vue";
+import Header from "@widgets/ui/Header/Header.vue";
 
-import BasketItem from "../../entities/ui/BasketItem/BasketItem.vue";
+import BasketItem from "@entities/ui/BasketItem/BasketItem.vue";
 
-import BasketPrice from "../../entities/ui/BasketPrice/BasketPrice.vue";
+import BasketPrice from "@entities/ui/BasketPrice/BasketPrice.vue";
 
-import TextArea from "../../shared/ui/TextArea/TextArea.vue";
+import TextArea from "@shared/ui/TextArea/TextArea.vue";
 
-import Warning from "../../shared/ui/Warning/Warning.vue";
+import Warning from "@shared/ui/Warning/Warning.vue";
 
-import ProfileRouter from "../../entities/ui/ProfileRouter/ProfileRouter.vue";
+import ProfileRouter from "@entities/ui/ProfileRouter/ProfileRouter.vue";
 
 // import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
 
-import ProfileInfo from "../../entities/ui/ProfileInfo/ProfileInfo.vue";
+import ProfileInfo from "@entities/ui/ProfileInfo/ProfileInfo.vue";
 
 // import storeRouterIcon from "../../assets/storeRouterIcon.svg";
 import { BackButton, MainButton } from "vue-tg";
-import router from "../../app/router/router";
-import basketItemAvatar from "../../assets/basketItemAvatar.svg";
-import testProfileImg from "../../assets/testProfileImg.svg";
+import router from "@app/router/router";
+import basketItemAvatar from "@assets/basketItemAvatar.svg";
+import testProfileImg from "@assets/testProfileImg.svg";
 </script>
 
 <template>
