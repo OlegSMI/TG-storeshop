@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
+
+import { useOrderStore } from "@app/store/useOrderStore";
 import HistoryItem from "@shared/ui/HistoryItem/HistoryItem.vue";
 import testHistoryImg from "@assets/testHistoryImg.svg";
+
+const orderStore = useOrderStore();
+
+onMounted(() => {
+  orderStore.fetchOrderItems();
+});
 </script>
 
 <template>

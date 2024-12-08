@@ -1,17 +1,17 @@
 import axiosInstance from "./axiosCreate";
 
-interface Good {
-  good_id: number;
-  quantity: number;
+interface OrderItems {
+  id: number;
+  name: string;
+  price: number;
+  state: "processed" | "posted" | "cancelled";
 }
 
-interface Order {
-  code: number;
-  msg: string;
-  data: Good[];
+interface Orders {
+  OrderItems: OrderItems[];
 }
 
-export const getOrderItems = async (): Promise<Order> => {
+export const getOrderItems = async (): Promise<Orders> => {
   const response = await axiosInstance.get(`/order`);
   return response.data;
 };

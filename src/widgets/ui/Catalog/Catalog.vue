@@ -8,7 +8,7 @@ import CatalogCard from "@entities/ui/CatalogCard/CatalogCard.vue";
 const catalogStore = useCatalogStore();
 
 onMounted(() => {
-  catalogStore.fetchCatalogItems(); // Запрашиваем данные при монтировании компонента
+  catalogStore.fetchCatalogItems();
 });
 
 const items = [
