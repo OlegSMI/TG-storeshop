@@ -13,7 +13,7 @@ defineProps<{ text: string }>();
 <style scoped>
 .warning {
   display: flex;
-  background-color: rgba(246, 181, 54, 0.13);
+  background-color: var(--atention-color);
   border-radius: 12px;
   padding: 12px 16px;
 
@@ -22,7 +22,7 @@ defineProps<{ text: string }>();
   }
 
   p {
-    color: #000000;
+    color: var(--text-color);
     font-weight: 400;
     background-color: transparent;
     padding: 0;

@@ -12,10 +12,10 @@
   width: 343px;
   height: 90px;
   outline: none;
-  background-color: #ffffff;
-  border: 1px solid #efefef;
+  background-color: var(--bg-color);
+  border: 1px solid var(--hint-color);
   border-radius: 12px;
-  color: #999999;
+  color: var(--hint-color);
   font-weight: 510;
   font-size: 14px;
   line-height: 18px;

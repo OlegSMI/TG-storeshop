@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import backButton from "../../assets/backButton.svg";
+import backButton from "@assets/backButton.svg";
 </script>
 
 <template>
@@ -24,7 +24,7 @@ import backButton from "../../assets/backButton.svg";
   }
 
   span {
-    color: #007aff;
+    color: var(--button-color);
     font-weight: 400;
     font-size: 17px;
     line-height: 22px;

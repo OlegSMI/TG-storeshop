@@ -1,7 +1,16 @@
 <script setup lang="ts">
-import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
+import { onMounted } from "vue";
 
-defineProps<{ img?: string; name: string; count: number }>();
+import { useProfileStore } from "@app/store/useProfileStore";
+import Tokens from "@shared/ui/Tokens/Tokens.vue";
+
+defineProps<{ img: string; name: string; count: number }>();
+
+const profileStore = useProfileStore();
+
+onMounted(() => {
+  profileStore.featchProfileInfo();
+});
 </script>
 
 <template>
@@ -30,7 +39,7 @@ defineProps<{ img?: string; name: string; count: number }>();
 }
 .name {
   margin: 12px 0 4px 0;
-  color: #1a1e26;
+  color: var(--text-color);
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;

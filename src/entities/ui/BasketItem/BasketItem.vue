@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
+import Tokens from "@shared/ui/Tokens/Tokens.vue";
 
 // Импортируйте и определите иконки
-import addItemIconWhite from "../../../shared/assets/addItemIcon-white.svg";
-import delItemIconWhite from "../../../shared/assets/delItemIcon-white.svg";
+import addItemIconWhite from "@shared/assets/addItemIcon-white.svg";
+import delItemIconWhite from "@shared/assets/delItemIcon-white.svg";
 
 interface Props {
   img: string;
@@ -24,7 +24,7 @@ const props = defineProps<Props>();
     </div>
     <button class="count">
       <img :src="delItemIconWhite" alt="Удалить" />
-      <p>{{ props.count }}</p>
+      <p class="count-text">{{ props.count }}</p>
       <img :src="addItemIconWhite" alt="Добавить" />
     </button>
   </div>
@@ -47,14 +47,14 @@ const props = defineProps<Props>();
 
 .description {
   p {
-    color: #000000;
+    color: var(--text-color);
     font-weight: 510;
     margin-bottom: 4px;
   }
 }
 
 .count {
-  background-color: #007aff;
+  background-color: var(--button-color);
 
   img {
     margin: 0px 4px;
@@ -62,6 +62,10 @@ const props = defineProps<Props>();
 
   p {
     margin: 0px 8px;
+  }
+
+  .count-text {
+    color: #ffffff;
   }
 }
 </style>

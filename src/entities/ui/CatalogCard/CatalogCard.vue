@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useBasketStore } from "../../../app/store/useBasketStore";
-import CardButton from "../../../shared/ui/CardButton/CardButton.vue";
+import { useBasketStore } from "@app/store/useBasketStore";
+import CardButton from "@shared/ui/CardButton/CardButton.vue";
 const props = defineProps<{
   id: string;
   name: string;
@@ -78,7 +78,7 @@ const handleAddProductCart = () => {
   }
 
   .title {
-    color: #000000;
+    color: var(--text-color);
     font-weight: 510;
     overflow: hidden;
     display: -webkit-box;
@@ -89,7 +89,7 @@ const handleAddProductCart = () => {
 
   .text {
     margin-top: 4px;
-    color: #8e8e93;
+    color: var(--hint-color);
     font-weight: 400;
     overflow: hidden;
     display: -webkit-box;
