@@ -33,7 +33,8 @@ import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
 
 .logo {
   display: flex;
-  color: #8e8e93;
+  color: var(--hint-color);
+  padding: 0 16px;
 
   p {
     align-self: center;

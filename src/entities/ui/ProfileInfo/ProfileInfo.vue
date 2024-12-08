@@ -30,7 +30,7 @@ defineProps<{ img?: string; name: string; count: number }>();
 }
 .name {
   margin: 12px 0 4px 0;
-  color: #1a1e26;
+  color: var(--text-color);
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;

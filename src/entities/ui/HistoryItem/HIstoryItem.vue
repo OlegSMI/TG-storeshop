@@ -35,7 +35,7 @@ const currentStatusDetails = statuses[props.status];
   <div class="history-item">
     <img :src="props.img" alt="Image" />
     <div class="description">
-      <p>{{ props.text }}</p>
+      <p class="title">{{ props.text }}</p>
       <p :style="{ color: currentStatusDetails.color }">
         {{ currentStatusDetails.message }} ·
         <span :style="{ color: '#8E8E93' }">{{ props.count }} шт.</span>
@@ -60,12 +60,12 @@ const currentStatusDetails = statuses[props.status];
     margin-right: 12px;
     border-radius: 12px;
   }
-}
 
-.description {
-  p {
-    color: #000000;
-    font-weight: 510;
+  .description {
+    .title {
+      color: var(--text-color);
+      font-weight: 510;
+    }
   }
 }
 </style>

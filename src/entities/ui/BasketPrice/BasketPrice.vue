@@ -22,7 +22,7 @@ import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
 <style scoped>
 .basket-price {
   width: 343px;
-  background-color: #efefef;
+  background-color: var(--tertiary-fill-background);
   border-radius: 12px;
 }
 .all-price {
@@ -30,7 +30,7 @@ import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
   justify-content: space-between;
   padding: 12px 16px;
 
-  color: #000000;
+  color: var(--text-color);
   font-size: 17px;
   font-weight: 590;
   line-height: 22px;
@@ -54,7 +54,7 @@ import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
 .balance {
   display: flex;
   justify-content: space-between;
-  color: #000000;
+  color: var(--text-color);
   font-weight: 400;
 
   padding: 0 16px 12px 16px;

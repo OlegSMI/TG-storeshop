@@ -24,7 +24,7 @@ import backButton from "../../assets/backButton.svg";
   }
 
   span {
-    color: #007aff;
+    color: var(--button-color);
     font-weight: 400;
     font-size: 17px;
     line-height: 22px;

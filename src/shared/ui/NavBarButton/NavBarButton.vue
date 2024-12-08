@@ -3,18 +3,19 @@ defineProps<{ name: string; isChecked: boolean }>();
 </script>
 
 <template>
-  <button
-    :style="{
-      color: isChecked ? '#FFFFFF' : '#000000',
-      backgroundColor: isChecked ? '#007AFF' : '#EFEFEF',
-    }"
-  >
+  <button :class="isChecked ? 'isChecked' : 'noChecked'">
     {{ name }}
   </button>
 </template>
 
 <style scoped>
-button {
-  background-color: ;
+.isChecked {
+  color: var(--button-text-color);
+  background-color: var(--button-color);
+}
+
+.noChecked {
+  color: var(--text-color);
+  background-color: var(--button-main-disabled-color);
 }
 </style>

@@ -21,7 +21,7 @@
   --button-confirm-color: #61bd67;
   --text-confirm-color: #61bd67;
   --text-destruсtive-color: #ee686f;
-  --attention-color: #e5a443;
+  --atention-color: rgba(229, 164, 67, 0.2);
   --separator-color: #3b3b3e;
 }
 
@@ -32,7 +32,8 @@
   --button-confirm-color: #34c759;
   --text-confirm-color: #34c759;
   --text-destruсtive-color: #cc2929;
-  --atention-color: #f6b536;
+  /* --atention-color: #f6b536; */
+  --atention-color: rgba(246, 181, 54, 0.2);
   --separator-color: #d9d9d9;
 }
 
@@ -47,7 +48,7 @@
 }
 
 .iosDeviceScheme.dark {
-  --bg-color: #1c1c1d;
+  --bg-color: #ffffff;
   --text-color: #ffffff;
   --hint-color: #98989e;
   --link-color: #3e88f7;
@@ -62,7 +63,7 @@
   --hint-color: #999999;
   --link-color: #3a95d5;
   --button-text-color: #ffffff;
-  --button-color: #50a8eb;
+  --button-color: #007aff;
   --second-bg-color: #f0f0f0;
 }
 
@@ -72,7 +73,7 @@
   --hint-color: #868686;
   --link-color: #5c9fde;
   --button-text-color: #ffffff;
-  --button-color: #439bde;
+  --button-color: #3e88f7;
   --second-bg-color: #000000;
 }
 

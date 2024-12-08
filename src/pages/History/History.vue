@@ -34,16 +34,16 @@ import HistoryItem from "../../entities/ui/HistoryItem/HistoryItem.vue";
 
 <style scoped>
 .history {
-  color: #8e8e93;
   padding: 16px;
 
   h1 {
+    color: var(--text-color);
     padding: 16px 16px 8px 0;
   }
 }
 
 .date {
-  color: #8e8e93;
+  color: var(--hint-color);
   font-weight: 510;
   text-align: left;
   padding: 16px 0 8px 0;
