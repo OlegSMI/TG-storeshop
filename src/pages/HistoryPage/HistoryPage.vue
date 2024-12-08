@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { BackButton, MainButton } from "vue-tg";
+import History from "@widgets/ui/History/History.vue";
 import router from "../../app/router/router";
 </script>
 

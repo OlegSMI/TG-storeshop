@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import History from "../../pages/History/History.vue";
+import HistoryPage from "../../pages/HistoryPage/HistoryPage.vue";
 import Main from "../../pages/Main/Main.vue";
 import Navigate from "../../pages/Navigate/Navigate.vue";
 import Product from "../../pages/Product/Product.vue";
@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/main", component: Main },
   { path: "/all-components", component: AllComponents },
   { path: "/profile", component: Profile },
-  { path: "/history", component: History },
+  { path: "/history", component: HistoryPage },
   { path: "/product", component: Product },
   { path: "/task", component: Task },
   { path: "/basket", component: Basket },
