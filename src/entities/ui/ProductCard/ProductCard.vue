@@ -54,6 +54,8 @@ import CardButton from "@shared/ui/CardButton/CardButton.vue";
   overflow-x: auto;
   white-space: nowrap;
   gap: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 
   img {
     width: 240px;
