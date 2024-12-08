@@ -17,6 +17,8 @@ import NavBarButton from "../../../shared/ui/NavBarButton/NavBarButton.vue";
   overflow-x: auto;
   white-space: nowrap;
   gap: 8px;
-  padding: 16px;
+  padding: 16px 16px 0 16px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
 </style>

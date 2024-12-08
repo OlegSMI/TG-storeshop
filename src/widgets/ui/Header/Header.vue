@@ -24,17 +24,15 @@ import Tokens from "../../../shared/ui/Tokens/Tokens.vue";
 
 <style scoped>
 .header {
-  /* width: 375px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 8px 16px; */
+  padding: 8px 16px;
 }
 
 .logo {
   display: flex;
   color: var(--hint-color);
-  padding: 0 16px;
 
   p {
     align-self: center;
