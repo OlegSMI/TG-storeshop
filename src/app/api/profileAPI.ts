@@ -1,12 +1,11 @@
 import axiosInstance from "./axiosCreate";
 
-interface Profile {
-  img: string;
-  name: string;
-  tokensCount: number;
-}
-
-export const getProfileInfo = async (): Promise<Profile> => {
+export const getUserName = async (): Promise<string> => {
   const response = await axiosInstance.get(`/profile`);
-  return response.data;
+  return response.data.data.email;
+};
+
+export const getBalance = async (): Promise<number> => {
+  const response = await axiosInstance.get(`/balance`);
+  return response.data.data.amount;
 };

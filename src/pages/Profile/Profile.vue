@@ -1,8 +1,17 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
 import { BackButton, MainButton } from "vue-tg";
+
+import { useProfileStore } from "@app/store/useProfileStore";
 import router from "@app/router/router";
 import ProfileInfo from "@entities/ui/ProfileInfo/ProfileInfo.vue";
 import ProfileRouter from "@entities/ui/ProfileRouter/ProfileRouter.vue";
+
+const profileStore = useProfileStore();
+
+onMounted(() => {
+  profileStore.getProfileData();
+});
 </script>
 
 <template>
@@ -10,7 +19,10 @@ import ProfileRouter from "@entities/ui/ProfileRouter/ProfileRouter.vue";
     <MainButton text="profile" />
     <BackButton @click="router.go(-1)" />
     <div class="profile">
-      <ProfileInfo name="Fortune" :count="500" />
+      <ProfileInfo
+        :name="profileStore.profileData.email"
+        :count="profileStore.profileData.amount"
+      />
       <div class="items">
         <p class="heading">AYA Store</p>
         <ProfileRouter />

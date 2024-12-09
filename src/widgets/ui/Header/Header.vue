@@ -1,9 +1,18 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
+
 import logo from "./assets/logo.svg";
 import fence from "./assets/fence.svg";
 import avatarIcon from "./assets/avatar.svg";
 
 import Tokens from "@shared/ui/Tokens/Tokens.vue";
+import { useProfileStore } from "@app/store/useProfileStore";
+
+const profileStore = useProfileStore();
+
+onMounted(() => {
+  profileStore.getProfileData();
+});
 </script>
 
 <template>
@@ -14,7 +23,7 @@ import Tokens from "@shared/ui/Tokens/Tokens.vue";
       <p>Store</p>
     </div>
     <div class="user">
-      <Tokens :tokens="500" />
+      <Tokens :tokens="profileStore.profileData.amount" />
       <router-link :to="'/profile'" class="avatar">
         <img :src="avatarIcon" alt="" />
       </router-link>

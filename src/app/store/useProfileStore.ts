@@ -1,29 +1,33 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-import { getProfileInfo } from "../api/profileAPI";
+import { getUserName, getBalance } from "../api/profileAPI";
 
 interface Profile {
-  img: string;
-  name: string;
-  tokensCount: number;
+  email: string;
+  amount: number;
 }
 
 export const useProfileStore = defineStore("userData", () => {
   const profileData = ref<Profile>({
-    img: "",
-    name: "",
-    tokensCount: 0,
+    email: "",
+    amount: 0,
   });
 
   const featchProfileInfo = async () => {
     try {
-      const data = await getProfileInfo();
-      profileData.value = data;
+      const email = await getUserName();
+      const amount = await getBalance();
+      profileData.value = {
+        email,
+        amount,
+      };
     } catch (error) {
       console.error("Error fetching profile data:", error);
     }
   };
 
-  return { profileData, featchProfileInfo };
+  const getProfileData = () => profileData.value;
+
+  return { profileData, featchProfileInfo, getProfileData };
 });
