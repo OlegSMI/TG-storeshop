@@ -21,9 +21,10 @@ import Tokens from "@shared/ui/Tokens/Tokens.vue";
 
 <style scoped>
 .basket-price {
-  width: 343px;
+  /* width: 343px; */
   background-color: var(--tertiary-fill-background);
   border-radius: 12px;
+  margin: 12px 0;
 }
 .all-price {
   display: flex;
