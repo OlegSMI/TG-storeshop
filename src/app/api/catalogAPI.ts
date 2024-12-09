@@ -1,12 +1,19 @@
 import axiosInstance from "./axiosCreate";
 
-// TODO: хз что приходит
 interface CatalogItem {
-  id: number;
+  good_id: number;
   name: string;
+  img: string;
+  price: string;
+  quantity: string;
+  shortDescr: string;
 }
 
-export const getCatalogItems = async (slug: number): Promise<CatalogItem[]> => {
+interface Catalog {
+  goods: CatalogItem[];
+}
+
+export const getCatalogItems = async (slug: number): Promise<Catalog> => {
   const response = await axiosInstance.get(`/category/${slug}`);
-  return response.data;
+  return response.data.data;
 };

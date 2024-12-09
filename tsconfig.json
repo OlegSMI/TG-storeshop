@@ -3,5 +3,12 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    // ... другие настройки
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"] // Предполагается, что ваш корень проекта - это папка src
+    }
+  }
 }

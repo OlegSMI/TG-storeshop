@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import addItemIconBlue from "../../assets/addItemIcon-blue.svg";
-import addItemIconWhite from "../../assets/addItemIcon-white.svg";
-import delItemIconWhite from "../../assets/delItemIcon-white.svg";
-import tokenItemBlue from "../../assets/tokenIcon-blue.svg";
-import tokenItemWhite from "../../assets/tokenIcon-white.svg";
+import addItemIconBlue from "@shared/assets/addItemIcon-blue.svg";
+import addItemIconWhite from "@shared/assets/addItemIcon-white.svg";
+import delItemIconWhite from "@shared/assets/delItemIcon-white.svg";
+import tokenItemBlue from "@shared/assets/tokenIcon-blue.svg";
+import tokenItemWhite from "@shared/assets/tokenIcon-white.svg";
 
 defineProps<{
   price: number;

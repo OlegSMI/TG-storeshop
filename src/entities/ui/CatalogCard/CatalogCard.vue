@@ -1,32 +1,40 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useBasketStore } from "../../../app/store/useBasketStore";
-import CardButton from "../../../shared/ui/CardButton/CardButton.vue";
-const props = defineProps<{
-  id: string;
-  name: string;
-  desc: string;
-  price: number;
-  imgSrc: string;
-}>();
-// const count = 1;
-const { existingItem, addItem } = useBasketStore();
-const count = computed(() => existingItem(props.id).value?.quantity || 0);
+import { useBasketStore } from "@app/store/useBasketStore";
+import CardButton from "@shared/ui/CardButton/CardButton.vue";
 
-const handleAddProductCart = () => {
-  addItem({ id: props.id, name: props.name, price: props.price });
-  console.log(count);
-};
+interface Item {
+  good_id: number;
+  name: string;
+  img: string;
+  price: string;
+  quantity: string;
+  shortDescr: string;
+}
+
+interface Props {
+  item: Item;
+}
+
+const props = defineProps<Props>();
+const count = 1;
+// const { existingItem, addItem } = useBasketStore();
+// const count = computed(() => existingItem(props.id).value?.quantity || 0);
+
+// const handleAddProductCart = () => {
+//   addItem({ id: props.id, name: props.name, price: props.price });
+//   console.log(count);
+// };
 </script>
 
 <template>
   <div class="card">
     <router-link :to="'/product'" class="router">
-      <div class="imgWrapper"><img :src="imgSrc" alt="" /></div>
+      <div class="imgWrapper"><img :src="props.item.img" alt="" /></div>
       <div class="description">
-        <p class="title">{{ name }}</p>
+        <p class="title">{{ props.item.name }}</p>
         <p class="text">
-          {{ desc }}
+          {{ props.item.shortDescr }}
         </p>
       </div>
     </router-link>
@@ -35,12 +43,8 @@ const handleAddProductCart = () => {
       <p>{{ count }}</p>
     </div>
 
-    <CardButton
-      @addProductCart="handleAddProductCart"
-      :price="100"
-      :isChecked="false"
-      class="button"
-    />
+    <!-- @addProductCart="handleAddProductCart" -->
+    <CardButton :price="props.item.price" :isChecked="false" class="button" />
   </div>
 </template>
 
@@ -78,7 +82,7 @@ const handleAddProductCart = () => {
   }
 
   .title {
-    color: #000000;
+    color: var(--text-color);
     font-weight: 510;
     overflow: hidden;
     display: -webkit-box;
@@ -89,7 +93,7 @@ const handleAddProductCart = () => {
 
   .text {
     margin-top: 4px;
-    color: #8e8e93;
+    color: var(--hint-color);
     font-weight: 400;
     overflow: hidden;
     display: -webkit-box;

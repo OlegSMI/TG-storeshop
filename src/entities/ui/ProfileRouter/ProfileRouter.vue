@@ -22,7 +22,7 @@ import arrowIcon from "./assets/arrow.svg";
   justify-content: space-between;
   padding: 16px;
   border-radius: 10px;
-  background-color: #efefef;
+  background-color: var(--tertiary-fill-background);
   text-decoration: none;
 }
 
@@ -31,7 +31,7 @@ import arrowIcon from "./assets/arrow.svg";
   align-items: center;
 
   p {
-    color: #000000;
+    color: var(--text-color);
     font-weight: 400;
   }
 

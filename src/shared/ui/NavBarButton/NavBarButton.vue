@@ -1,20 +1,45 @@
 <script setup lang="ts">
-defineProps<{ name: string; isChecked: boolean }>();
+// import { defineProps } from "vue";
+import { useCategoryStore } from "@app/store/useCategoryStore";
+import { useCatalogStore } from "@app/store/useCatalogStore";
+
+interface Item {
+  category_id: number;
+  name: string;
+  isChecked: boolean;
+}
+
+interface Props {
+  item: Item;
+}
+
+const props = defineProps<Props>();
+const categoryStore = useCategoryStore();
+const catalogStore = useCatalogStore();
+
+const handleClick = () => {
+  categoryStore.setActiveCategory(props.item.category_id);
+  catalogStore.fetchCatalogItems(props.item.category_id);
+};
 </script>
 
 <template>
   <button
-    :style="{
-      color: isChecked ? '#FFFFFF' : '#000000',
-      backgroundColor: isChecked ? '#007AFF' : '#EFEFEF',
-    }"
+    :class="props.item.isChecked ? 'isChecked' : 'noChecked'"
+    @click="handleClick"
   >
-    {{ name }}
+    {{ props.item.name }}
   </button>
 </template>
 
 <style scoped>
-button {
-  background-color: ;
+.isChecked {
+  color: var(--button-text-color);
+  background-color: var(--button-color);
+}
+
+.noChecked {
+  color: var(--text-color);
+  background-color: var(--button-main-disabled-color);
 }
 </style>
