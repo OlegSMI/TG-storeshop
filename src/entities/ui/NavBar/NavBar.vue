@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 
-import { useCartegoryStore } from "@app/store/useCartegoryStore";
+import { useCategoryStore } from "@app/store/useCategoryStore";
 import NavBarButton from "@shared/ui/NavBarButton/NavBarButton.vue";
 
-const cartegoryStore = useCartegoryStore();
+const cartegoryStore = useCategoryStore();
 
 onMounted(() => {
-  cartegoryStore.fetchCategories();
+  cartegoryStore.featchCategoryItems();
 });
 </script>
 
