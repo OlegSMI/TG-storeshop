@@ -8,7 +8,7 @@ interface OrderItems {
 }
 
 interface Orders {
-  OrderItems: OrderItems[];
+  orderItems: OrderItems[];
 }
 
 export const getOrderItems = async (): Promise<Orders> => {
