@@ -2,21 +2,29 @@
 import { onMounted } from "vue";
 
 import { useCategoryStore } from "@app/store/useCategoryStore";
+import { useCatalogStore } from "@app/store/useCatalogStore";
 import NavBarButton from "@shared/ui/NavBarButton/NavBarButton.vue";
 
-const cartegoryStore = useCategoryStore();
+const categoryStore = useCategoryStore();
+const catalogStore = useCatalogStore();
 
-onMounted(() => {
-  cartegoryStore.featchCategoryItems();
+onMounted(async () => {
+  await categoryStore.featchCategoryItems();
+  await catalogStore.fetchCatalogItems(
+    categoryStore.categoryItems.categoryItems[0].category_id
+  );
 });
 </script>
 
 <template>
   <div class="navbar">
-    <NavBarButton name="Одежда" :isChecked="true" class="item" />
-    <NavBarButton name="Аксессуары" :isChecked="false" class="item" />
-    <NavBarButton name="Аксессуары" :isChecked="false" class="item" />
-    <NavBarButton name="Аксессуары" :isChecked="false" class="item" />
+    <div
+      v-for="item in categoryStore.categoryItems.categoryItems"
+      :key="item.category_id"
+      class="item"
+    >
+      <NavBarButton :item="item" />
+    </div>
   </div>
 </template>
 
