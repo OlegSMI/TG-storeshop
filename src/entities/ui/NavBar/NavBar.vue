@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
+
+import { useCartegoryStore } from "@app/store/useCartegoryStore";
 import NavBarButton from "@shared/ui/NavBarButton/NavBarButton.vue";
+
+const cartegoryStore = useCartegoryStore();
+
+onMounted(() => {
+  cartegoryStore.fetchCategories();
+});
 </script>
 
 <template>
