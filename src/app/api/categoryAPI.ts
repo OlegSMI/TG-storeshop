@@ -1,15 +1,22 @@
 import axiosInstance from "./axiosCreate";
 
 interface CategoryItem {
-  id: number;
+  category_id: number;
   name: string;
 }
 
-interface Categories {
-  categoryItems: CategoryItem[];
-}
+// interface Categories {
+//   code: number;
+//   msg: string;
+//   categoryItems: CategoryItem[];
+// }
 
-export const getCategoryItems = async (): Promise<Categories> => {
-  const response = await axiosInstance.get(`/category`);
-  return response.data;
+export const getCategoryItems = async (): Promise<CategoryItem[]> => {
+  try {
+    const response = await axiosInstance.get(`/category`);
+    return response.data.data;
+  } catch (error) {
+    console.error("Error fetching category items:", error);
+    throw error; // или обработайте ошибку по-другому
+  }
 };
