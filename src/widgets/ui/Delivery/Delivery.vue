@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import TextArea from "@shared/ui/TextArea/TextArea.vue";
-import Warning from "@shared/ui/Warning/Warning.vue";
 </script>
 
 <template>

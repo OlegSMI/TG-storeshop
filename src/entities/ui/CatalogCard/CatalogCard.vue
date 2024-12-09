@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { useBasketStore } from "@app/store/useBasketStore";
 import CardButton from "@shared/ui/CardButton/CardButton.vue";
 
 interface Item {
