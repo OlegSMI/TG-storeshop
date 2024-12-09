@@ -6,9 +6,14 @@
   ],
   "compilerOptions": {
     // ... другие настройки
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"] // Предполагается, что ваш корень проекта - это папка src
+      "@app/*": ["src/app/*"],
+      "@entities/*": ["src/entities/*"],
+      "@shared/*": ["src/shared/*"],
+      "@pages/*": ["src/pages/*"],
+      "@widgets/*": ["src/widgets/*"],
+      "@assets/*": ["src/assets/*"]
     }
   }
 }
