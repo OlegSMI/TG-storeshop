@@ -32,12 +32,12 @@ const props = defineProps<Props>();
 
 <style scoped>
 .basket-item {
-  width: 375px;
+  /* width: 375px; */
   display: grid;
   grid-template-columns: 0.1fr 1fr 0.1fr;
   align-items: center;
 
-  padding: 8px 16px;
+  padding: 8px 0;
 
   img {
     margin-right: 12px;
