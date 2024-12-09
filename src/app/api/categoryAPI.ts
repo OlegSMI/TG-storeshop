@@ -5,12 +5,6 @@ interface CategoryItem {
   name: string;
 }
 
-// interface Categories {
-//   code: number;
-//   msg: string;
-//   categoryItems: CategoryItem[];
-// }
-
 export const getCategoryItems = async (): Promise<CategoryItem[]> => {
   try {
     const response = await axiosInstance.get(`/category`);

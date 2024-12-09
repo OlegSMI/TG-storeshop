@@ -8,9 +8,10 @@ import CatalogCard from "@entities/ui/CatalogCard/CatalogCard.vue";
 const catalogStore = useCatalogStore();
 
 onMounted(() => {
-  catalogStore.fetchCatalogItems();
+  catalogStore.getCatalogData();
 });
 
+console.log("get", catalogStore.catalogItems.goods);
 const items = [
   {
     id: "1",
@@ -66,12 +67,9 @@ const items = [
 <template>
   <div class="catalog">
     <CatalogCard
-      v-for="item in items"
-      :id="item.id"
-      :name="item.name"
-      :desc="item.description"
-      :price="item.price"
-      :imgSrc="item.imgSrc"
+      v-for="item in catalogStore.catalogItems.goods"
+      :key="item.good_id"
+      :item="item"
     />
   </div>
 </template>

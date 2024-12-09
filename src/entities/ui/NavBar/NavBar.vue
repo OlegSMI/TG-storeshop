@@ -2,12 +2,17 @@
 import { onMounted } from "vue";
 
 import { useCategoryStore } from "@app/store/useCategoryStore";
+import { useCatalogStore } from "@app/store/useCatalogStore";
 import NavBarButton from "@shared/ui/NavBarButton/NavBarButton.vue";
 
 const categoryStore = useCategoryStore();
+const catalogStore = useCatalogStore();
 
 onMounted(async () => {
   await categoryStore.featchCategoryItems();
+  await catalogStore.fetchCatalogItems(
+    categoryStore.categoryItems.categoryItems[0].category_id
+  );
 });
 </script>
 

@@ -3,36 +3,52 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { getCatalogItems } from "../api/catalogAPI";
 
-//TODO: хз что приходит
 interface CatalogItem {
-  id: number;
+  good_id: number;
   name: string;
+  img: string;
+  price: string;
+  quantity: string;
+  shortDescr: string;
+}
+
+interface Catalog {
+  goods: CatalogItem[];
 }
 
 export const useCatalogStore = defineStore("catalog", () => {
-  const items = ref<CatalogItem[]>([]); // Массив для хранения данных
-  const loading = ref<boolean>(false); // Статус загрузки
-  const error = ref<Error | null>(null); // Ошибка, если она произошла
+  const catalogItems = ref<Catalog>({
+    goods: [
+      {
+        good_id: 0,
+        name: "",
+        img: "",
+        price: "",
+        quantity: "",
+        shortDescr: "",
+      },
+    ],
+  });
 
-  const fetchCatalogItems = async () => {
-    loading.value = true;
-    error.value = null;
-
+  const fetchCatalogItems = async (id: number) => {
     try {
-      const response = await getCatalogItems(1);
-      items.value = response;
+      const items: Catalog = await getCatalogItems(id);
+
+      catalogItems.value.goods = items.goods;
+      return items.goods;
     } catch (err) {
-      // error.value = err;
-      console.log(err);
-    } finally {
-      loading.value = false;
+      console.error("Error fetching catalog items:", err);
+      return [];
     }
   };
 
+  const getCatalogData = () => {
+    return catalogItems.value.goods;
+  };
+
   return {
-    items,
-    loading,
-    error,
+    catalogItems,
     fetchCatalogItems,
+    getCatalogData,
   };
 });
