@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineEmits } from "vue";
+import { defineEmits, ref } from "vue";
 
 const emit = defineEmits(["sendDataToParent"]);
 const deliveryText = ref<string>("");
@@ -37,8 +37,7 @@ defineProps({
   width: 100%;
   height: 90px;
   outline: none;
-  background-color: var(--bg-color);
-
+  background: transparent;
   border-radius: 12px;
   color: var(--hint-color);
   font-weight: 510;
@@ -47,6 +46,7 @@ defineProps({
   padding: 12px 16px;
   margin: 8px 0;
   resize: none;
+  border: none;
 }
 
 .warningColor {

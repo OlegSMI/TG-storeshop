@@ -1,27 +1,57 @@
 <script setup lang="ts">
-import readyOrderImg from "./readyOrderImg.svg";
+import storeRouterIcon from "@assets/router/storeRouterIcon.svg";
+import { BackButton, MainButton } from "vue-tg";
+import router from "../../app/router/router";
+
+const handleMainButton = () => {
+  router.push("/main");
+};
 </script>
 
 <template>
-  <div class="ready-order">
-    <img :src="readyOrderImg" alt="" />
-    <h1>readyOrderImg</h1>
-    <p>С вами свяжутся</p>
+  <div class="empty">
+    <MainButton text="К каталогу" @click="handleMainButton" />
+    <BackButton @click="router.go(-1)" />
+    <img :src="storeRouterIcon" alt="" />
+    <div class="empty-text">
+      <h2>Заказ оформлен</h2>
+      <span>С вами свяжутся</span>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.ready-order {
-  padding: 16px;
-  color: #000000;
+<style scoped lang="scss">
+@mixin flex-column-center($gap) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+}
 
-  img {
-    width: 80px;
-    height: 80px;
+@mixin absolute-centered() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.empty {
+  @include flex-column-center(24px);
+  @include absolute-centered();
+  width: 100%;
+
+  &-text {
+    @include flex-column-center(8px);
+    color: var(--text-color);
+
+    span {
+      max-width: 200px;
+    }
   }
-
-  h1 {
-    columns: ;
+  img {
+    min-width: 80px;
+    min-height: 80px;
   }
 }
 </style>

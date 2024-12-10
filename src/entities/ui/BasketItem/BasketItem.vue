@@ -12,7 +12,6 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-// Импортируйте и определите иконки
 
 const { addItem, decrementItemQuantity } = useBasketStore();
 
@@ -21,19 +20,18 @@ const handleAddProductCart = () => {
     id: props.id,
     name: props.title,
     price: props.price,
+    img: props.img,
   });
 };
 
 const handleRemProductCart = () => {
   decrementItemQuantity(props.id);
 };
-
-console.log("ASd'asd", props.price);
 </script>
 
 <template>
   <div class="basket-item">
-    <img :src="props.img" alt="Image of {{ props.title }}" />
+    <img :src="props.img" alt="Image of {{ props.title }}" class="item-image" />
     <div class="description">
       <p class="title">{{ props.title }}</p>
       <Tokens :tokens="props.price" />
@@ -54,7 +52,7 @@ console.log("ASd'asd", props.price);
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .basket-item {
   /* width: 375px; */
   display: grid;
@@ -63,10 +61,13 @@ console.log("ASd'asd", props.price);
 
   padding: 8px 0;
 
-  img {
+  .item-image {
     margin-right: 12px;
     border-radius: 12px;
+    width: 48px;
+    height: 48px;
     cursor: pointer;
+    object-fit: cover;
   }
 }
 
@@ -80,6 +81,7 @@ console.log("ASd'asd", props.price);
 
 .count {
   background-color: var(--button-color);
+  cursor: pointer;
 
   img {
     margin: 0px 4px;

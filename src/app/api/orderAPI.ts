@@ -11,9 +11,9 @@ export const saveOrder = async (
   items: { id: number; quantity: number }[]
 ) => {
   console.log("saveOrder", delivery, items);
-  // const response = await axiosInstance.post(`/order`, {
-  //   delivery,
-  //   goods: items,
-  // });
-  // return response.data;
+  const response = await axiosInstance.post(`/order`, {
+    delivery,
+    goods: items,
+  });
+  return response.data;
 };

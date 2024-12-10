@@ -29,6 +29,7 @@ const handleAddProductCart = () => {
     id: currentGoodId,
     name: item.value?.name || "",
     price: item.value?.price || "",
+    img: item.value?.img || "",
   });
 };
 

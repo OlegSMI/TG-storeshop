@@ -27,6 +27,7 @@ const handleAddProductCart = () => {
     id: props.item.good_id,
     name: props.item.name,
     price: props.item.price,
+    img: props.item.img,
   });
 };
 
