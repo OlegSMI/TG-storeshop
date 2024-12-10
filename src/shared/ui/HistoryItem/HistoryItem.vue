@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import Tokens from "../Tokens/Tokens.vue";
 
 const props = defineProps<{
+  id: number;
   img: string;
   text: string;
   status: "processed" | "posted" | "cancelled";
@@ -11,25 +13,28 @@ const props = defineProps<{
 
 interface StatusDetails {
   message: string;
-  color: string;
+  class: "processed" | "posted" | "cancelled";
 }
 
-const statuses: Record<"processed" | "posted" | "cancelled", StatusDetails> = {
-  processed: {
-    message: "Обрабатывается",
-    color: "#8E8E93",
+const statuses: StatusDetails[] = [
+  {
+    message: "В обработке",
+    class: "processed",
   },
-  posted: {
-    message: "Отправлено",
-    color: "#34C759",
-  },
-  cancelled: {
+  {
     message: "Аннулирован",
-    color: "#CC2929",
+    class: "cancelled",
   },
-};
+  {
+    message: "Отправлено",
+    class: "posted",
+  },
+];
 
-const currentStatusDetails = statuses[props.status];
+const getStatusClass = (status: string) =>
+  computed(() => statuses.find((el) => el.message == status)).value?.class;
+
+const statusIsPosted = (status: string) => getStatusClass(status) != "posted";
 </script>
 
 <template>
@@ -37,14 +42,14 @@ const currentStatusDetails = statuses[props.status];
     <img :src="props.img" alt="Image" />
     <div class="description">
       <p class="title">{{ props.text }}</p>
-      <p :style="{ color: currentStatusDetails.color }">
-        {{ currentStatusDetails.message }} ·
-        <span :style="{ color: '#8E8E93' }">{{ props.count }} шт.</span>
+      <p :class="`${getStatusClass(status)}`">
+        {{ status }} ·
+        <span class="count-items">{{ props.count }} шт.</span>
       </p>
     </div>
     <Tokens
-      :tokens="props.price"
-      :style="{ opacity: props.status !== 'posted' && 0.4 }"
+      :tokens="price * count"
+      :style="{ opacity: statusIsPosted(status) && 0.4 }"
     />
   </div>
 </template>
@@ -59,7 +64,11 @@ const currentStatusDetails = statuses[props.status];
 
   img {
     margin-right: 12px;
+
     border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
   }
 
   .description {
@@ -68,5 +77,19 @@ const currentStatusDetails = statuses[props.status];
       font-weight: 510;
     }
   }
+}
+
+.processed {
+  color: var(--hint-color);
+}
+.posted {
+  color: var(--text-confirm-color);
+}
+.cancelled {
+  color: var(--text-destruсtive-color);
+}
+
+.count-items {
+  color: var(--hint-color);
 }
 </style>

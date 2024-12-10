@@ -1,17 +1,7 @@
+import { Order } from "../../shared/inerfaces/OrderHistory";
 import axiosInstance from "./axiosCreate";
 
-interface OrderItems {
-  id: number;
-  name: string;
-  price: number;
-  state: "processed" | "posted" | "cancelled";
-}
-
-interface Orders {
-  orderItems: OrderItems[];
-}
-
-export const getOrderItems = async (): Promise<Orders> => {
+export const getOrderItems = async (): Promise<Order[]> => {
   const response = await axiosInstance.get(`/order`);
-  return response.data;
+  return response.data.data.orders;
 };

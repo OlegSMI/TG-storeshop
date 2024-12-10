@@ -1,37 +1,47 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import { Order } from "../../shared/inerfaces/OrderHistory";
 import { getOrderItems } from "../api/orderAPI";
 
-interface OrderItem {
-  id: number;
-  name: string;
-  price: number;
-  state: "processed" | "posted" | "cancelled";
-}
-interface Orders {
-  orderItems: OrderItem[];
+export interface OrderState {
+  loading: boolean;
+  orders: Order[];
+  error: string;
 }
 
 export const useOrderStore = defineStore("order", () => {
-  const orderItems = ref<Orders>({
-    orderItems: [
-      {
-        id: 0,
-        name: "",
-        price: 0,
-        state: "processed",
-      },
-    ],
+  const orderItems = ref<OrderState>({
+    loading: false,
+    orders: [],
+    error: "",
   });
 
   const fetchOrderItems = async () => {
+    setLoading(true);
     try {
       const response = await getOrderItems();
-      orderItems.value = response;
+      orderItems.value.orders = response;
     } catch (error) {
       console.error("Error fetching order items:", error);
+      orderItems.value.error = "Что-то пошло не так. Повторите попытку";
+    } finally {
+      setLoading(false);
     }
   };
 
-  return { orderItems, fetchOrderItems };
+  const getOrders = () => {
+    return orderItems.value.orders;
+  };
+
+  const getLoadingStatus = () => orderItems.value.loading;
+
+  const setLoading = (state: boolean) => (orderItems.value.loading = state);
+
+  return {
+    orderItems,
+    fetchOrderItems,
+    getOrders,
+    getLoadingStatus,
+    setLoading,
+  };
 });

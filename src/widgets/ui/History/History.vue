@@ -1,26 +1,36 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 
 import { useOrderStore } from "@app/store/useOrderStore";
 import HistoryItem from "@shared/ui/HistoryItem/HistoryItem.vue";
-import testHistoryImg from "@assets/testHistoryImg.svg";
+import Loading from "@shared/ui/Loading/Loading.vue";
+import { convertDateToString } from "../../../shared/helpers/dateConverter";
+import { Order } from "../../../shared/inerfaces/OrderHistory";
 
-const orderStore = useOrderStore();
+const orders = ref<Order[]>();
 
-onMounted(() => {
-  orderStore.fetchOrderItems();
+const store = useOrderStore();
+const { fetchOrderItems, getOrders, getLoadingStatus } = store;
+
+onMounted(async () => {
+  await fetchOrderItems();
+  orders.value = getOrders();
 });
 </script>
 
 <template>
-  <div>
-    <p class="date">19 сентября 2024</p>
+  <div v-if="getLoadingStatus()">
+    <Loading />
+  </div>
+  <div v-else v-for="item in orders">
+    <p class="date">{{ convertDateToString(item.created_at) }}</p>
     <HistoryItem
-      :img="testHistoryImg"
-      text="Бейсболка BASE белая"
-      status="cancelled"
-      :price="-200"
-      :count="2"
+      :id="item.goods.good_id"
+      :img="item.goods.img"
+      :text="item.goods.name"
+      :status="item.goods.status"
+      :price="-Number(item.goods.price)"
+      :count="item.goods.quantity"
     />
   </div>
 </template>
