@@ -48,6 +48,20 @@ const handleRemProductCart = () => {
         alt="Добавить"
         @click="handleAddProductCart"
       />
+      <button
+        v-if="count > 0"
+        class="side-button click-rem"
+        @click="handleRemProductCart"
+      >
+        rem
+      </button>
+      <button
+        v-if="count > 0"
+        class="side-button click-add"
+        @click="handleAddProductCart"
+      >
+        add
+      </button>
     </button>
   </div>
 </template>
@@ -80,6 +94,7 @@ const handleRemProductCart = () => {
 }
 
 .count {
+  position: relative;
   background-color: var(--button-color);
   cursor: pointer;
 
@@ -96,5 +111,18 @@ const handleRemProductCart = () => {
   .count-text {
     color: #ffffff;
   }
+}
+.side-button {
+  position: absolute;
+  width: 45%;
+  opacity: 0;
+}
+
+.click-add {
+  right: 0;
+}
+
+.click-rem {
+  left: 0;
 }
 </style>
