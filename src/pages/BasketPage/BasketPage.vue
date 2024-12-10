@@ -73,7 +73,7 @@ const createOrder = async () => {
       text="Оформить заказ"
       @click="createOrder"
       :progress="orderInProgress"
-      :visible="totalPrice < profileStore.profileData.amount"
+      :visible="totalPrice <= profileStore.profileData.amount"
     />
     <BackButton @click="router.go(-1)" />
     <div class="basket">
