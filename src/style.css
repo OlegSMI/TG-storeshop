@@ -6,13 +6,13 @@
 
 @font-face {
   font-family: "SF Pro"; /* Название шрифта для использования */
-  src: url("./assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype"); /* Путь к файлу шрифта */
+  /* src: url("./assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype"); Путь к файлу шрифта */
   font-weight: normal; /* Толщина шрифта */
   font-style: normal; /* Начертание шрифта */
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: SF Pro, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -53,7 +53,7 @@
   --button-color: #007aff;
   --second-bg-color: #efeff4;
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: SF Pro, sans-serif;
 }
 
 .iosDeviceScheme.dark {
@@ -74,6 +74,8 @@
   --button-text-color: #ffffff;
   --button-color: #007aff;
   --second-bg-color: #f0f0f0;
+
+  font-family: SF Pro, sans-serif;
 }
 
 .noiosDeviceScheme.dark {
