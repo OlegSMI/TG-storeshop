@@ -8,6 +8,8 @@ import tokenItemWhite from "@shared/assets/tokenIcon-white.svg";
 const props = defineProps<{
   price: string;
   count: number;
+  limitQuantity: string;
+  visibleToken?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -23,7 +25,9 @@ const globalAddEmit = () => {
 
 const addProductEmit = (e: MouseEvent) => {
   e.stopPropagation();
-  emit("addProductCart");
+  if (props.count < Number(props.limitQuantity)) {
+    emit("addProductCart");
+  }
 };
 
 const remProductEmit = (e: MouseEvent) => {
@@ -53,7 +57,11 @@ const remProductEmit = (e: MouseEvent) => {
     </transition>
     <div class="counting-value">
       {{ Number(price) * (count > 0 ? count : 1) }}
-      <img :src="count > 0 ? tokenItemWhite : tokenItemBlue" alt="" />
+      <img
+        v-if="visibleToken"
+        :src="count > 0 ? tokenItemWhite : tokenItemBlue"
+        alt=""
+      />
     </div>
     <div class="counting-wrapper">
       <img

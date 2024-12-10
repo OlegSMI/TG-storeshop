@@ -57,6 +57,8 @@ const handleRemProductCart = () => {
     <CardButton
       :price="props.item.price"
       :count="count"
+      :visibleToken="true"
+      :limitQuantity="props.item.quantity"
       class="button"
       @addProductCart="handleAddProductCart"
       @remProductCart="handleRemProductCart"

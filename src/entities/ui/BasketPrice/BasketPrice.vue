@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import Tokens from "@shared/ui/Tokens/Tokens.vue";
-// defineProps<{ price: number }>();
+import { storeToRefs } from "pinia";
+import { Ref } from "vue";
+import { useBasketStore } from "../../../app/store/useBasketStore";
+
+const { totalItems, totalPrice } = storeToRefs(useBasketStore()) as {
+  totalItems: Ref<number>;
+  totalPrice: Ref<number>;
+};
 </script>
 
 <template>
@@ -8,8 +15,8 @@ import Tokens from "@shared/ui/Tokens/Tokens.vue";
     <div class="all-price">
       <p>Всего</p>
       <div class="count">
-        <p>3 шт. ·</p>
-        <Tokens :tokens="800" class="count-tokens" />
+        <p>{{ totalItems }} шт. ·</p>
+        <Tokens :tokens="totalPrice" class="count-tokens" />
       </div>
     </div>
     <div class="balance">

@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import Tokens from "@shared/ui/Tokens/Tokens.vue";
-
-// Импортируйте и определите иконки
 import addItemIconWhite from "@shared/assets/addItemIcon-white.svg";
 import delItemIconWhite from "@shared/assets/delItemIcon-white.svg";
-
+import Tokens from "@shared/ui/Tokens/Tokens.vue";
+import { useBasketStore } from "../../../app/store/useBasketStore";
 interface Props {
+  id: number;
   img: string;
   title: string;
   price: string;
@@ -13,6 +12,21 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+// Импортируйте и определите иконки
+
+const { addItem, decrementItemQuantity } = useBasketStore();
+
+const handleAddProductCart = () => {
+  addItem({
+    id: props.id,
+    name: props.title,
+    price: props.price,
+  });
+};
+
+const handleRemProductCart = () => {
+  decrementItemQuantity(props.id);
+};
 </script>
 
 <template>
@@ -23,9 +37,17 @@ const props = defineProps<Props>();
       <Tokens :tokens="Number(props.price)" />
     </div>
     <button class="count">
-      <img :src="delItemIconWhite" alt="Удалить" />
+      <img
+        :src="delItemIconWhite"
+        alt="Удалить"
+        @click="handleRemProductCart"
+      />
       <p class="count-text">{{ props.count }}</p>
-      <img :src="addItemIconWhite" alt="Добавить" />
+      <img
+        :src="addItemIconWhite"
+        alt="Добавить"
+        @click="handleAddProductCart"
+      />
     </button>
   </div>
 </template>
@@ -42,6 +64,7 @@ const props = defineProps<Props>();
   img {
     margin-right: 12px;
     border-radius: 12px;
+    cursor: pointer;
   }
 }
 
