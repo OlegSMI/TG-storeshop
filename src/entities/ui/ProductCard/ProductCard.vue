@@ -2,30 +2,42 @@
 import router from "@app/router/router";
 import testProductIcon from "@assets/testProductIcon.svg";
 import CardButton from "@shared/ui/CardButton/CardButton.vue";
+import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 import { BackButton, MainButton } from "vue-tg";
+import { ExtendItem, getExtendProduct } from "../../../app/api/productAPI";
+
+const route = useRoute();
+
+const loading = ref<boolean>(false);
+const item = ref<ExtendItem | null>(null);
+
+console.log("loser");
+onMounted(async () => {
+  loading.value = true;
+  item.value = await getExtendProduct(Number(route.query.id));
+  loading.value = false;
+  console.log(item.value);
+});
 </script>
 
 <template>
+  <!-- <loadi -->
   <div class="product">
     <div class="images">
       <img :src="testProductIcon" alt="" />
       <img :src="testProductIcon" alt="" />
+      <img :src="testProductIcon" alt="" />
+      <img :src="testProductIcon" alt="" />
     </div>
-    <h1>Бейсболка BASE белая</h1>
-    <CardButton :price="100" :isChecked="false" class="button" />
+    <h1>{{ item?.name }}</h1>
+    <CardButton :price="item?.price" :count="item?.quantity" class="button" />
     <div class="description">
       <p>
-        Плотная жаккардовая бейсболка с лого AYA синего цвета с застежкой на
-        липучке и люверсами для вентиляции головы.
+        {{ item?.shortDescr }}
       </p>
       <p>
-        Не успел освежить голову с утра? Бейсболка — лучшее решение! А еще
-        защита от солнца и морщин.
-      </p>
-      <p>
-        — синий цвет — 6 клиньев — лобовой шов — 6 вышивных люверсов для лучшей
-        вентиляции — изогнутый козырек с полной прострочкой — контрастный кант в
-        центральной части козырька — застежка на липучке
+        {{ item?.descr }}
       </p>
     </div>
     <MainButton text="Добавить в корзину" />

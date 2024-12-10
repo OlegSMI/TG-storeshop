@@ -54,8 +54,14 @@ export const useCatalogStore = defineStore("catalog", () => {
     return catalogItems.value.goods;
   };
 
+  const getCatalogItem = (id: number) => {
+    console.log(catalogItems.value);
+    return catalogItems.value.goods.find((item) => item.good_id === id);
+  };
+
   return {
     catalogItems,
+    getCatalogItem,
     fetchCatalogItems,
     getCatalogData,
   };

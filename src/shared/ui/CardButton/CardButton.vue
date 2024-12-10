@@ -37,6 +37,7 @@ const remProductEmit = (e: MouseEvent) => {
     :style="{
       color: count > 0 ? 'white' : '#007aff',
       backgroundColor: count > 0 ? '#007aff' : '#efefef',
+      transition: 'width 0.3s ease',
     }"
     @click="globalAddEmit"
   >
@@ -98,7 +99,7 @@ button {
 
 .fade-slide-enter-active {
   transition: all 2.3s ease;
-  width: 100%;
+  width: 12px;
 }
 
 .fade-slide-enter {

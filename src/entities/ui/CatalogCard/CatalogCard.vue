@@ -37,7 +37,10 @@ const handleRemProductCart = () => {
 
 <template>
   <div class="card">
-    <router-link :to="'/product'" class="router">
+    <router-link
+      :to="{ path: '/product', query: { id: item.good_id } }"
+      class="router"
+    >
       <div class="imgWrapper"><img :src="props.item.img" alt="" /></div>
       <div class="description">
         <p class="title">{{ props.item.name }}</p>
