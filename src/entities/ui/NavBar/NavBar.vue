@@ -9,17 +9,24 @@ const categoryStore = useCategoryStore();
 const catalogStore = useCatalogStore();
 
 onMounted(async () => {
-  await categoryStore.featchCategoryItems();
-  await catalogStore.fetchCatalogItems(
-    categoryStore.categoryItems.categoryItems[0].category_id
-  );
+  console.log("ebigo");
+  await Promise.all([
+    categoryStore.featchCategoryItems(),
+    catalogStore.fetchCatalogItems(
+      categoryStore.categoryItems.categoryItems[0]?.category_id || 0
+    ),
+  ]);
+  console.log("suka");
 });
 </script>
 
 <template>
   <div class="navbar">
     <div
-      v-if="categoryStore.categoryItems.loading"
+      v-if="
+        categoryStore.categoryItems.loading ||
+        categoryStore.categoryItems.categoryItems.length == 0
+      "
       v-for="item in 3"
       class="item"
     >

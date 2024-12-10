@@ -35,7 +35,9 @@ const loadingState = computed(
       :item="item"
     />
   </div>
-  <Warning v-if="textError != ''" :text="textError" />
+  <transition name="scale-slide">
+    <Warning v-if="textError != ''" :text="textError" />
+  </transition>
 </template>
 
 <style scoped>
@@ -45,5 +47,22 @@ const loadingState = computed(
   justify-items: center;
   gap: 16px;
   padding: 16px;
+}
+
+.scale-slide-enter,
+.scale-slide-leave-to {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.scale-slide-enter-to,
+.scale-slide-leave {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.scale-slide-enter-active,
+.scale-slide-leave-active {
+  transition: all 0.3s ease;
 }
 </style>
