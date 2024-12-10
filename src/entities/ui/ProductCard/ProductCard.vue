@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import testProductIcon from "@assets/testProductIcon.svg";
 import CardButton from "@shared/ui/CardButton/CardButton.vue";
 import Loading from "@shared/ui/Loading/Loading.vue";
 import { computed, onMounted, ref } from "vue";
@@ -59,10 +58,8 @@ onMounted(async () => {
   <Loading v-if="loading" />
   <div v-else class="product">
     <div class="images">
-      <img :src="testProductIcon" alt="" />
-      <img :src="testProductIcon" alt="" />
-      <img :src="testProductIcon" alt="" />
-      <img :src="testProductIcon" alt="" />
+      <img :src="item?.img" alt="main img" />
+      <img v-for="im in item?.addimg" :src="im" alt="extend img" />
     </div>
     <h1>{{ item?.name }}</h1>
     <CardButton
@@ -75,9 +72,6 @@ onMounted(async () => {
       class="button"
     />
     <div class="description">
-      <p>
-        {{ item?.shortDescr }}
-      </p>
       <p v-html="formaettedDescr"></p>
     </div>
     <MainButton :text="mainButText" @click="mainButHandler" />
@@ -108,6 +102,7 @@ onMounted(async () => {
   gap: 12px;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
+  margin-bottom: 16px;
 
   img {
     width: 240px;

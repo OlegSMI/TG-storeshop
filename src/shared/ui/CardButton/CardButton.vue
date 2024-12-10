@@ -37,7 +37,10 @@ const remProductEmit = (e: MouseEvent) => {
 </script>
 
 <template>
-  <button class="button-wrapper" @click="globalAddEmit">
+  <button
+    :class="`button-wrapper${count > 0 ? '-active' : ''}`"
+    @click="globalAddEmit"
+  >
     <transition name="fade-slide">
       <div v-if="count > 0" class="counting-wrapper">
         <img
@@ -72,6 +75,10 @@ const remProductEmit = (e: MouseEvent) => {
   background-color: var(--tertiary-fill-background);
   color: var(--button-color);
   transition: width 0.3s ease;
+  &-active {
+    background-color: var(--link-color);
+    color: var(--button-text-color);
+  }
 }
 button {
   display: flex;

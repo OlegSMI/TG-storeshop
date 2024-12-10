@@ -8,7 +8,7 @@ export interface ExtendItem {
   quantity: string;
   descr: string;
   shortDescr: string;
-  addImg: string[];
+  addimg: string[];
 }
 
 export const getExtendProduct = async (
