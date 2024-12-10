@@ -1,22 +1,30 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
 
 import { useCatalogStore } from "@app/store/useCatalogStore";
 import { useProfileStore } from "@app/store/useProfileStore";
 import CatalogCard from "@entities/ui/CatalogCard/CatalogCard.vue";
 import Loading from "@shared/ui/Loading/Loading.vue";
+import { useCategoryStore } from "../../../app/store/useCategoryStore";
 
 const catalogStore = useCatalogStore();
+const categoryStore = useCategoryStore();
+
 const profileStore = useProfileStore();
 
 onMounted(() => {
   catalogStore.getCatalogData();
   profileStore.featchProfileInfo();
 });
+
+const loadingState = computed(
+  () =>
+    catalogStore.catalogItems.isLoading || categoryStore.categoryItems.loading
+);
 </script>
 
 <template>
-  <div v-if="catalogStore.catalogItems.isLoading"><Loading /></div>
+  <div v-if="loadingState"><Loading /></div>
   <div v-else class="catalog">
     <CatalogCard
       v-for="item in catalogStore.catalogItems.goods"

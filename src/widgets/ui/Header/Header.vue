@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 
-import logo from "./assets/logo.svg";
-import fence from "./assets/fence.svg";
 import avatarIcon from "./assets/avatar.svg";
+import fence from "./assets/fence.svg";
+import logo from "./assets/logo.svg";
 
-import Tokens from "@shared/ui/Tokens/Tokens.vue";
 import { useProfileStore } from "@app/store/useProfileStore";
+import Tokens from "@shared/ui/Tokens/Tokens.vue";
 
 const profileStore = useProfileStore();
 
@@ -25,7 +25,7 @@ onMounted(() => {
     <div class="user">
       <Tokens :tokens="profileStore.profileData.amount" />
       <router-link :to="'/profile'" class="avatar">
-        <img :src="avatarIcon" alt="" />
+        <img :src="avatarIcon" alt="" cl />
       </router-link>
     </div>
   </div>
@@ -56,6 +56,10 @@ onMounted(() => {
 .avatar {
   margin-left: 11px;
   text-decoration: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--tertiary-fill-background);
 
   &:hover {
     cursor: pointer;

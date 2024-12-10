@@ -12,8 +12,12 @@ interface Categories {
   categoryItems: CategoryItem[];
 }
 
+interface CategoriesStore extends Categories {
+  loading: boolean;
+}
+
 export const useCategoryStore = defineStore("category", () => {
-  const categoryItems = ref<Categories>({
+  const categoryItems = ref<CategoriesStore>({
     categoryItems: [
       {
         category_id: 0,
@@ -21,9 +25,11 @@ export const useCategoryStore = defineStore("category", () => {
         isChecked: false,
       },
     ],
+    loading: false,
   });
 
   const featchCategoryItems = async () => {
+    categoryItems.value.loading = true;
     try {
       const items: { category_id: number; name: string }[] =
         await getCategoryItems();
@@ -36,6 +42,8 @@ export const useCategoryStore = defineStore("category", () => {
     } catch (error) {
       console.error("Error fetching category items:", error);
       return [];
+    } finally {
+      categoryItems.value.loading = false;
     }
   };
 
