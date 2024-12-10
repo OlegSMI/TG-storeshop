@@ -1,11 +1,26 @@
 <script setup lang="ts">
-const isWarning = true;
+import { ref, defineEmits } from "vue";
+
+const emit = defineEmits(["sendDataToParent"]);
+const deliveryText = ref<string>("");
+
+const emitDeliveryText = () => {
+  emit("sendDataToParent", deliveryText.value);
+};
+
+defineProps({
+  isWarning: Boolean,
+});
+
+// const isWarning = true;
 </script>
 
 <template>
   <div>
-    <p class="warning">Пожалуйста, укажите адрес</p>
+    <p class="warning" v-if="isWarning">Пожалуйста, укажите адрес</p>
     <textarea
+      @input="emitDeliveryText"
+      v-model="deliveryText"
       :class="isWarning ? 'warningColor' : 'noWarningColor'"
       class="text-area"
       placeholder="Подробности доставки (Адрес/Индекс)"
