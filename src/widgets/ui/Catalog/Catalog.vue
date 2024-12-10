@@ -2,13 +2,16 @@
 import { onMounted } from "vue";
 
 import { useCatalogStore } from "@app/store/useCatalogStore";
+import { useProfileStore } from "@app/store/useProfileStore";
 import CatalogCard from "@entities/ui/CatalogCard/CatalogCard.vue";
 import Loading from "@shared/ui/Loading/Loading.vue";
 
 const catalogStore = useCatalogStore();
+const profileStore = useProfileStore();
 
 onMounted(() => {
   catalogStore.getCatalogData();
+  profileStore.featchProfileInfo();
 });
 </script>
 
