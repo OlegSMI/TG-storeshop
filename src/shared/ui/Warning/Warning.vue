@@ -6,7 +6,7 @@ defineProps<{ text: string }>();
 <template>
   <div class="warning">
     <img :src="warningIcon" alt="" />
-    <p class="warning">{{ text }}</p>
+    <div>{{ text }}</div>
   </div>
 </template>
 
@@ -16,12 +16,13 @@ defineProps<{ text: string }>();
   background-color: var(--atention-color);
   border-radius: 12px;
   padding: 12px 16px;
+  margin: 16px;
 
   img {
     margin-right: 8px;
   }
 
-  p {
+  div {
     color: var(--text-color);
     font-weight: 400;
     background-color: transparent;

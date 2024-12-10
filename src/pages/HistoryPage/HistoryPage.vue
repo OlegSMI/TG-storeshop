@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { BackButton, MainButton } from "vue-tg";
 import History from "@widgets/ui/History/History.vue";
+import { BackButton } from "vue-tg";
 import router from "../../app/router/router";
 </script>
 
@@ -8,7 +8,6 @@ import router from "../../app/router/router";
   <div class="history">
     <h1 class="title">История заказов</h1>
     <History />
-    <MainButton text="product" />
     <BackButton @click="router.go(-1)" />
   </div>
 </template>

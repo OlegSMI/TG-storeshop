@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { BackButton, MainButton } from "vue-tg";
+import { BackButton } from "vue-tg";
 
-import { useProfileStore } from "@app/store/useProfileStore";
 import router from "@app/router/router";
+import { useProfileStore } from "@app/store/useProfileStore";
 import ProfileInfo from "@entities/ui/ProfileInfo/ProfileInfo.vue";
 import ProfileRouter from "@entities/ui/ProfileRouter/ProfileRouter.vue";
 
@@ -16,7 +16,6 @@ onMounted(() => {
 
 <template>
   <div>
-    <MainButton text="profile" />
     <BackButton @click="router.go(-1)" />
     <div class="profile">
       <ProfileInfo

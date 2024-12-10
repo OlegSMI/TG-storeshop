@@ -2,10 +2,11 @@
 import { computed, onMounted } from "vue";
 
 import { useCatalogStore } from "@app/store/useCatalogStore";
+import { useCategoryStore } from "@app/store/useCategoryStore";
 import { useProfileStore } from "@app/store/useProfileStore";
 import CatalogCard from "@entities/ui/CatalogCard/CatalogCard.vue";
 import Loading from "@shared/ui/Loading/Loading.vue";
-import { useCategoryStore } from "../../../app/store/useCategoryStore";
+import Warning from "@shared/ui/Warning/Warning.vue";
 
 const catalogStore = useCatalogStore();
 const categoryStore = useCategoryStore();
@@ -16,6 +17,8 @@ onMounted(() => {
   catalogStore.getCatalogData();
   profileStore.featchProfileInfo();
 });
+
+const textError = computed(() => catalogStore.catalogItems.error);
 
 const loadingState = computed(
   () =>
@@ -32,6 +35,7 @@ const loadingState = computed(
       :item="item"
     />
   </div>
+  <Warning v-if="textError != ''" :text="textError" />
 </template>
 
 <style scoped>
