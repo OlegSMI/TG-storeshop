@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineEmits } from "vue";
+import { defineEmits, ref } from "vue";
 
 import TextArea from "@shared/ui/TextArea/TextArea.vue";
 import Warning from "@shared/ui/Warning/Warning.vue";
@@ -16,7 +16,7 @@ const emitDataToGrandparent = (data: string) => {
   emit("sendDataToGrandparent", data);
 };
 
-const props = defineProps({
+defineProps({
   isTextAreaEmpty: Boolean,
   warning: Boolean,
 });

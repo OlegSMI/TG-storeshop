@@ -1,1 +1,1 @@
-const catchErrors = () => {};
+// const catchErrors = () => {};
