@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import CardButton from "@shared/ui/CardButton/CardButton.vue";
+import { computed } from "vue";
+import { useBasketStore } from "../../../app/store/useBasketStore";
 
 interface Item {
   good_id: number;
@@ -15,14 +17,22 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-const count = 1;
-// const { existingItem, addItem } = useBasketStore();
-// const count = computed(() => existingItem(props.id).value?.quantity || 0);
+const { existingItem, addItem, decrementItemQuantity } = useBasketStore();
+const count = computed(
+  () => existingItem(props.item.good_id).value?.quantity || 0
+);
 
-// const handleAddProductCart = () => {
-//   addItem({ id: props.id, name: props.name, price: props.price });
-//   console.log(count);
-// };
+const handleAddProductCart = () => {
+  addItem({
+    id: props.item.good_id,
+    name: props.item.name,
+    price: props.item.price,
+  });
+};
+
+const handleRemProductCart = () => {
+  decrementItemQuantity(props.item.good_id);
+};
 </script>
 
 <template>
@@ -41,8 +51,13 @@ const count = 1;
       <p>{{ count }}</p>
     </div>
 
-    <!-- @addProductCart="handleAddProductCart" -->
-    <CardButton :price="props.item.price" :isChecked="false" class="button" />
+    <CardButton
+      :price="props.item.price"
+      :count="count"
+      class="button"
+      @addProductCart="handleAddProductCart"
+      @remProductCart="handleRemProductCart"
+    />
   </div>
 </template>
 

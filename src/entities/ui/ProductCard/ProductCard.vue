@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { BackButton, MainButton } from "vue-tg";
 import router from "@app/router/router";
 import testProductIcon from "@assets/testProductIcon.svg";
 import CardButton from "@shared/ui/CardButton/CardButton.vue";
+import { BackButton, MainButton } from "vue-tg";
 </script>
 
 <template>
@@ -28,7 +28,7 @@ import CardButton from "@shared/ui/CardButton/CardButton.vue";
         центральной части козырька — застежка на липучке
       </p>
     </div>
-    <MainButton text="product" />
+    <MainButton text="Добавить в корзину" />
     <BackButton @click="router.go(-1)" />
   </div>
 </template>

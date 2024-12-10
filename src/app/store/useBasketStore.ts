@@ -1,20 +1,20 @@
 import { defineStore } from "pinia";
-import { computed, ref } from "vue";
+import { computed, Ref, ref } from "vue";
 
-interface Product {
-  id: string;
+export interface CartProduct {
+  id: number;
   name: string;
-  price: number;
+  price: string;
   quantity?: number;
 }
 
 export const useBasketStore = defineStore("basket", () => {
-  const items = ref<Product[]>([]);
+  const items: Ref<CartProduct[]> = ref([]);
 
-  const existingItem = (id: string) =>
+  const existingItem = (id: number) =>
     computed(() => items.value.find((item) => item.id === id));
 
-  function addItem(product: Product) {
+  function addItem(product: CartProduct) {
     const existingItem = items.value.find((item) => item.id === product.id);
     if (existingItem) {
       existingItem.quantity!++;
@@ -23,34 +23,38 @@ export const useBasketStore = defineStore("basket", () => {
     }
   }
 
-  function removeItem(productId: string) {
+  const removeItem = (productId: number) => {
     items.value = items.value.filter((item) => item.id !== productId);
-  }
+  };
 
-  function incrementItemQuantity(productId: string) {
+  function incrementItemQuantity(productId: number) {
     const existingItem = items.value.find((item) => item.id === productId);
     if (existingItem) {
       existingItem.quantity!++;
     }
   }
 
-  function decrementItemQuantity(productId: string) {
+  function decrementItemQuantity(productId: number) {
     const existingItem = items.value.find((item) => item.id === productId);
     if (existingItem) {
       existingItem.quantity!--;
+      console.log(
+        `Decrementing item ${existingItem.name}, new quantity: ${existingItem.quantity}`
+      );
+
       if (existingItem.quantity! <= 0) {
         removeItem(productId);
       }
     }
   }
 
-  const totalItems = computed(() => {
-    return items.value.reduce((total, item) => total + (item.quantity || 0), 0);
-  });
+  const totalItems = computed(() =>
+    items.value.reduce((total, item) => total + (item.quantity || 0), 0)
+  );
 
   const totalPrice = computed(() => {
     return items.value.reduce(
-      (total, item) => total + item.price * (item.quantity || 0),
+      (total, item) => total + Number(item.price) * (item.quantity || 0),
       0
     );
   });

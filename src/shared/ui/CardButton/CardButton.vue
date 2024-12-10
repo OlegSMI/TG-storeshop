@@ -5,35 +5,103 @@ import delItemIconWhite from "@shared/assets/delItemIcon-white.svg";
 import tokenItemBlue from "@shared/assets/tokenIcon-blue.svg";
 import tokenItemWhite from "@shared/assets/tokenIcon-white.svg";
 
-defineProps<{
-  price: number;
-  isChecked: boolean;
+const props = defineProps<{
+  price: string;
+  count: number;
 }>();
+
+const emit = defineEmits<{
+  (e: "addProductCart"): void;
+  (e: "remProductCart"): void;
+}>();
+
+const globalAddEmit = () => {
+  if (props.count == 0) {
+    emit("addProductCart");
+  }
+};
+
+const addProductEmit = (e: MouseEvent) => {
+  e.stopPropagation();
+  emit("addProductCart");
+};
+
+const remProductEmit = (e: MouseEvent) => {
+  e.stopPropagation();
+  emit("remProductCart");
+};
 </script>
 
 <template>
   <button
     :style="{
-      color: isChecked ? 'white' : '#007aff',
-      backgroundColor: isChecked ? '#007aff' : '#efefef',
+      color: count > 0 ? 'white' : '#007aff',
+      backgroundColor: count > 0 ? '#007aff' : '#efefef',
     }"
-    @click="$emit('addProductCart')"
+    @click="globalAddEmit"
   >
-    <img :src="isChecked ? delItemIconWhite : ''" alt="" />
-    {{ price }}
-    <img :src="isChecked ? tokenItemWhite : tokenItemBlue" alt="" />
-    <img :src="isChecked ? addItemIconWhite : addItemIconBlue" alt="" />
+    <transition name="fade-slide">
+      <div v-if="count > 0" class="counting-wrapper">
+        <img
+          :src="delItemIconWhite"
+          alt=""
+          class="counting-button"
+          @click="remProductEmit"
+        />
+      </div>
+    </transition>
+    <div class="counting-value">
+      {{ Number(price) * (count > 0 ? count : 1) }}
+      <img :src="count > 0 ? tokenItemWhite : tokenItemBlue" alt="" />
+    </div>
+    <div class="counting-wrapper">
+      <img
+        :src="count > 0 ? addItemIconWhite : addItemIconBlue"
+        alt=""
+        class="counting-button"
+        @click="addProductEmit"
+      />
+    </div>
   </button>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 button {
-  img {
-    margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  .counting {
+    &-wrapper {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+    }
+    &-value {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    &-button {
+      width: 12px;
+      height: 12px;
+    }
   }
 
   &:hover {
     cursor: pointer;
   }
+}
+
+.fade-slide-enter-active {
+  transition: all 2.3s ease;
+  width: 100%;
+}
+
+.fade-slide-enter {
+  width: 0;
 }
 </style>
