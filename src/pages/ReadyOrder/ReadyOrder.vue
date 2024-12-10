@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import storeRouterIcon from "@assets/router/storeRouterIcon.svg";
+import { useRouter } from "vue-router";
 import { BackButton, MainButton } from "vue-tg";
-import router from "../../app/router/router";
+
+const router = useRouter();
 
 const handleMainButton = () => {
   router.push("/main");

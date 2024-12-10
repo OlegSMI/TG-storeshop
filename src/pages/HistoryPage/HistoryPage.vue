@@ -6,7 +6,6 @@ import router from "../../app/router/router";
 
 <template>
   <div class="history">
-    <h1 class="title">История заказов</h1>
     <History />
     <BackButton @click="router.go(-1)" />
   </div>
@@ -15,9 +14,5 @@ import router from "../../app/router/router";
 <style scoped>
 .history {
   padding: 16px;
-}
-.title {
-  color: var(--text-color);
-  padding: 16px 16px 8px 0;
 }
 </style>

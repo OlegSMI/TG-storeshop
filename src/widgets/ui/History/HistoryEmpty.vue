@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import storeRouterIcon from "@assets/router/storeRouterIcon.svg";
 import { useRouter } from "vue-router";
 import { BackButton, MainButton } from "vue-tg";
 
@@ -14,10 +13,9 @@ const handleMainButton = () => {
   <div class="empty">
     <MainButton text="К каталогу" @click="handleMainButton" />
     <BackButton @click="router.go(-1)" />
-    <img :src="storeRouterIcon" alt="" />
     <div class="empty-text">
-      <h2>Ваша корзина пуста</h2>
-      <span>Перейдите в каталог для начала покупок</span>
+      <h2>Нет заказов в AYA Store</h2>
+      <span>Здесь будут ваши заказы</span>
     </div>
   </div>
 </template>
