@@ -9,14 +9,10 @@ const categoryStore = useCategoryStore();
 const catalogStore = useCatalogStore();
 
 onMounted(async () => {
-  console.log("ebigo");
-  await Promise.all([
-    categoryStore.featchCategoryItems(),
-    catalogStore.fetchCatalogItems(
-      categoryStore.categoryItems.categoryItems[0]?.category_id || 0
-    ),
-  ]);
-  console.log("suka");
+  await categoryStore.featchCategoryItems();
+  await catalogStore.fetchCatalogItems(
+    categoryStore.categoryItems.categoryItems[0]?.category_id || 0
+  );
 });
 </script>
 
