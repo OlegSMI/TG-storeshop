@@ -18,13 +18,7 @@ interface CategoriesStore extends Categories {
 
 export const useCategoryStore = defineStore("category", () => {
   const categoryItems = ref<CategoriesStore>({
-    categoryItems: [
-      {
-        category_id: 0,
-        name: "",
-        isChecked: false,
-      },
-    ],
+    categoryItems: [],
     loading: false,
   });
 
