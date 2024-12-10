@@ -27,6 +27,8 @@ const handleAddProductCart = () => {
 const handleRemProductCart = () => {
   decrementItemQuantity(props.id);
 };
+
+console.log("ASd'asd", props.price);
 </script>
 
 <template>
@@ -34,7 +36,7 @@ const handleRemProductCart = () => {
     <img :src="props.img" alt="Image of {{ props.title }}" />
     <div class="description">
       <p class="title">{{ props.title }}</p>
-      <Tokens :tokens="Number(props.price)" />
+      <Tokens :tokens="props.price" />
     </div>
     <button class="count">
       <img
@@ -81,6 +83,8 @@ const handleRemProductCart = () => {
 
   img {
     margin: 0px 4px;
+    width: 12px;
+    height: 12px;
   }
 
   p {

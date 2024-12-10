@@ -8,6 +8,15 @@ const { totalItems, totalPrice } = storeToRefs(useBasketStore()) as {
   totalItems: Ref<number>;
   totalPrice: Ref<number>;
 };
+
+import { useProfileStore } from "@app/store/useProfileStore";
+import { onMounted } from "vue";
+
+const pfofileState = useProfileStore();
+
+onMounted(() => {
+  pfofileState.getProfileData();
+});
 </script>
 
 <template>
@@ -21,7 +30,10 @@ const { totalItems, totalPrice } = storeToRefs(useBasketStore()) as {
     </div>
     <div class="balance">
       <p>Ваш баланс</p>
-      <Tokens :tokens="500" class="balance-tokens" />
+      <Tokens
+        :tokens="pfofileState.profileData.amount"
+        class="balance-tokens"
+      />
     </div>
   </div>
 </template>
