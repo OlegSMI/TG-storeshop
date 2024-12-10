@@ -8,6 +8,12 @@ const emitDeliveryText = () => {
   emit("sendDataToParent", deliveryText.value);
 };
 
+const handleKeyup = (event: KeyboardEvent) => {
+  if (event.key === "Enter") {
+    (event.target as HTMLTextAreaElement).blur();
+  }
+};
+
 defineProps({
   isWarning: Boolean,
 });
@@ -20,6 +26,7 @@ defineProps({
     <p class="warning" v-if="isWarning">Пожалуйста, укажите адрес</p>
     <textarea
       @input="emitDeliveryText"
+      @keyup="handleKeyup"
       v-model="deliveryText"
       :class="isWarning ? 'warningColor' : 'noWarningColor'"
       class="text-area"
