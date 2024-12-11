@@ -60,6 +60,10 @@ export const useBasketStore = defineStore("basket", () => {
     );
   });
 
+  const cleanBasketStore = () => {
+    items.value = [];
+  };
+
   return {
     items,
     addItem,
@@ -69,5 +73,6 @@ export const useBasketStore = defineStore("basket", () => {
     totalItems,
     totalPrice,
     existingItem,
+    cleanBasketStore,
   };
 });

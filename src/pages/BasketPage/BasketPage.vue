@@ -33,6 +33,7 @@ const orderInProgress = ref<boolean>();
 const errorText = ref<string>("");
 
 const profileStore = useProfileStore();
+const basketStore = useBasketStore();
 
 onMounted(() => {
   profileStore.getProfileData();
@@ -54,6 +55,7 @@ const createOrder = async () => {
         }));
       try {
         await saveOrder(dataFromChild.value, productsToSave);
+        basketStore.cleanBasketStore();
         router.push("/ready-order");
       } catch (err: ErrorResponse | any) {
         errorText.value = err.response.data.detail;
