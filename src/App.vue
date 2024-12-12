@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import { useWebApp, useWebAppTheme } from "vue-tg";
-import { authUser } from "./app/api/authAPI";
 import { detectDevice } from "./app/config";
 
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
