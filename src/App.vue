@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { useWebAppTheme } from "vue-tg";
+import { computed, onMounted } from "vue";
+import { useWebApp, useWebAppTheme } from "vue-tg";
+import { authUser } from "./app/api/authAPI";
 import { detectDevice } from "./app/config";
 
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
+const initData = useWebApp().initData;
 
+console.log(initData);
 const deviceInfo = computed(() =>
   detectDevice().os === "macos" || detectDevice().os === "ios"
     ? "iosDeviceScheme"
