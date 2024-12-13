@@ -2,7 +2,7 @@ import { App, Plugin } from "vue";
 import axiosInstance from "../api/axiosCreate";
 import router from "../router/router";
 // import { useAuth } from "../app/api/authAPI";
-// import { useWebApp } from "vue-tg";
+import { useWebApp } from "vue-tg";
 
 import { useAuth } from "../api/authAPI";
 import { useProfileStore } from "../store/useProfileStore";
@@ -52,8 +52,10 @@ export const axios: Plugin = {
           originalRequest._retry = true;
 
           try {
-            // const initData = useWebApp().initData;
-            await authUser(import.meta.env.VITE_INIT_DATA);
+            const initData = useWebApp().initData;
+            // await authUser(import.meta.env.VITE_INIT_DATA);
+            await authUser(initData);
+
             return axiosInstance(originalRequest);
           } catch (refreshError) {
             return Promise.reject(refreshError);

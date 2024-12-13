@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Loading from "@shared/ui/Loading/Loading.vue";
 import { computed, ref } from "vue";
-import { useWebAppTheme } from "vue-tg";
+import { useWebApp, useWebAppTheme } from "vue-tg";
 import { useAuth } from "./app/api/authAPI";
 import { detectDevice } from "./app/config";
 import router from "./app/router/router";
@@ -9,7 +9,7 @@ import { useProfileStore } from "./app/store/useProfileStore";
 
 const loading = ref<boolean>(false);
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
-// const initData = useWebApp().initData;
+const initData = useWebApp().initData;
 const { authUser } = useAuth();
 
 const { getToken } = useProfileStore();
@@ -24,8 +24,8 @@ const fetchAuthUser = async () => {
     loading.value = true;
     console.log("выполняем авторизацию");
     try {
-      // await authUser(initData);
-      await authUser(import.meta.env.VITE_INIT_DATA);
+      await authUser(initData);
+      // await authUser(import.meta.env.VITE_INIT_DATA);
       router.push("/");
     } finally {
       loading.value = false;
