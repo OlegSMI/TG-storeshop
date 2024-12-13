@@ -4,6 +4,7 @@ import { computed, ref } from "vue";
 import { useWebAppTheme } from "vue-tg";
 import { useAuth } from "./app/api/authAPI";
 import { detectDevice } from "./app/config";
+import router from "./app/router/router";
 import { useProfileStore } from "./app/store/useProfileStore";
 
 const loading = ref<boolean>(false);
@@ -23,9 +24,9 @@ const fetchAuthUser = async () => {
     loading.value = true;
     console.log("выполняем авторизацию");
     try {
-      // const jwt = await authUser(initData);
-      const jwt = await authUser(import.meta.env.VITE_INIT_DATA);
-      setToken(jwt);
+      // await authUser(initData);
+      await authUser(import.meta.env.VITE_INIT_DATA);
+      router.push("/");
     } finally {
       loading.value = false;
     }
