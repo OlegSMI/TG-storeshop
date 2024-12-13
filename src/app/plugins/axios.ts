@@ -36,6 +36,13 @@ export const axios: Plugin = {
       async function (error) {
         const originalRequest = error.config;
 
+        if (error.response.status === 401 && error.config.url === "/tg_auth") {
+          removeToken();
+          console.log("перенаправляем на нужную страницу");
+          router.push("/stub");
+          return Promise.reject(error);
+        }
+
         if (error.response.status === 401 && !originalRequest._retry) {
           originalRequest._retry = true;
 

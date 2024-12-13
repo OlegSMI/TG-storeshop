@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Loading from "@shared/ui/Loading/Loading.vue";
 import { computed, ref } from "vue";
-import { useWebApp, useWebAppTheme } from "vue-tg";
+import { useWebAppTheme } from "vue-tg";
 import { useAuth } from "./app/api/authAPI";
 import { detectDevice } from "./app/config";
 import { useProfileStore } from "./app/store/useProfileStore";
@@ -12,9 +12,6 @@ const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 const { authUser } = useAuth();
 
 const { getToken, setToken } = useProfileStore();
-const initData = useWebApp().initData;
-
-console.log(initData);
 const deviceInfo = computed(() =>
   detectDevice().os === "macos" || detectDevice().os === "ios"
     ? "iosDeviceScheme"
