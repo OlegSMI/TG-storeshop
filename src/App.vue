@@ -19,6 +19,7 @@ const deviceInfo = computed(() =>
     : "noiosDeviceScheme"
 );
 
+console.log(initData);
 const fetchAuthUser = async () => {
   if (!getToken()) {
     loading.value = true;
@@ -32,7 +33,7 @@ const fetchAuthUser = async () => {
     }
   }
 };
-console.log("Проверка");
+
 fetchAuthUser();
 
 // onMounted(() => {
