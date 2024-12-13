@@ -43,12 +43,7 @@ const remProductEmit = (e: MouseEvent) => {
   >
     <transition name="fade-slide">
       <div v-if="count > 0" class="counting-wrapper">
-        <img
-          :src="delItemIconWhite"
-          alt=""
-          class="counting-button"
-          @click="remProductEmit"
-        />
+        <img :src="delItemIconWhite" alt="" class="counting-button" />
       </div>
     </transition>
     <div class="counting-value">
@@ -64,18 +59,34 @@ const remProductEmit = (e: MouseEvent) => {
         :src="count > 0 ? addItemIconWhite : addItemIconBlue"
         alt=""
         class="counting-button"
-        @click="addProductEmit"
       />
     </div>
+    <button
+      v-if="count > 0"
+      class="side-button click-rem"
+      @click="remProductEmit"
+    >
+      rem
+    </button>
+    <button
+      v-if="count > 0"
+      class="side-button click-add"
+      @click="addProductEmit"
+    >
+      add
+    </button>
   </button>
 </template>
 
 <style scoped lang="scss">
 .button-wrapper {
+  position: relative;
   background-color: var(--tertiary-fill-background);
   color: var(--button-color);
   transition: width 0.3s ease;
+
   &-active {
+    position: relative;
     background-color: var(--link-color);
     color: var(--button-text-color);
   }
@@ -117,5 +128,19 @@ button {
 
 .fade-slide-enter {
   width: 0;
+}
+
+.side-button {
+  position: absolute;
+  width: 45%;
+  opacity: 0;
+}
+
+.click-add {
+  right: 0;
+}
+
+.click-rem {
+  left: 0;
 }
 </style>

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@telegram-apps/sdk": "^2.9.1",
     "axios": "^1.7.9",
     "pinia": "^2.3.0",
     "rollup": "^4.28.1",

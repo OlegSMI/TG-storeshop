@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import RouterItem from "@shared/ui/RouterItem/RouterItem.vue";
 
-import { useWebAppTheme } from "vue-tg";
 import kitchenRouterIcon from "@assets/router/kitchenRouterIcon.svg";
 import storeRouterIcon from "@assets/router/storeRouterIcon.svg";
 import taskRouterIcon from "@assets/router/taskRouterIcon.svg";
-console.log(useWebAppTheme());
 
 const isDev = import.meta.env.DEV;
 

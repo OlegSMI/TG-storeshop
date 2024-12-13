@@ -1,5 +1,32 @@
-# Vue 3 + TypeScript + Vite
+# AYA TG mini app
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Перед началом разработки необходимо иметь сгенерированные SSL ключи с расширением .pem, поскольку telegram позволяет интегрировать только https соединение.
+Они нужны для отслеживания реальных изменений в режиме разработки.
+Генерацию можно провести через mkcert.
+Настройка Vite сервера:
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+```
+ if (isDevelopment) {
+    const SSLkey = fs.readFileSync("ssl-key.pem");
+    const SSLcert = fs.readFileSync("ssl.pem");
+ }
+```
+
+Имена ключей должны соответствовать.
+
+Необходимо настроить .env
+
+```
+# VITE_IP=<IP для локальной разработки>
+# VITE_APP_API_URL=<API бэкенда>
+# VITE_APP_API_TOKEN=<Токен авторизации>
+# VITE_INIT_DATA=<Данные пользователя для проверки авторизации>
+```
+
+Следующие этапы запуска
+
+```
+npm i
+
+npm run dev
+```

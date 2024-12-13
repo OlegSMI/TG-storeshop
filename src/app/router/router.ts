@@ -9,6 +9,7 @@ import AllComponents from "@pages/AllComponents/AllComponents.vue";
 import BasketPage from "@pages/BasketPage/BasketPage.vue";
 import EmptyBasket from "@pages/BasketPage/EmptyBasket.vue";
 import ReadyOrder from "@pages/ReadyOrder/ReadyOrder.vue";
+import StubPage from "@pages/StubPage/StubPage.vue";
 import Task from "@pages/Task/Task.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -22,6 +23,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/basket", component: BasketPage },
   { path: "/empty-basket", component: EmptyBasket },
   { path: "/ready-order", component: ReadyOrder },
+  { path: "/stub", component: StubPage },
 ];
 
 const router = createRouter({

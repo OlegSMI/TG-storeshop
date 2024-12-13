@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-import { getUserName, getBalance } from "../api/profileAPI";
+import { getBalance, getUserName } from "../api/profileAPI";
 
 interface Profile {
   email: string;
@@ -14,20 +14,31 @@ export const useProfileStore = defineStore("userData", () => {
     amount: 0,
   });
 
+  const getToken = () => localStorage.getItem("token");
+
+  const setToken = (token: string) => localStorage.setItem("token", token);
+
+  const removeToken = () => localStorage.removeItem("token");
+
   const featchProfileInfo = async () => {
     try {
       const email = await getUserName();
       const amount = await getBalance();
-      profileData.value = {
-        email,
-        amount,
-      };
+      profileData.value.email = email;
+      profileData.value.amount = amount;
     } catch (error) {
-      console.error("Error fetching profile data:", error);
+      throw error;
     }
   };
 
   const getProfileData = () => profileData.value;
 
-  return { profileData, featchProfileInfo, getProfileData };
+  return {
+    profileData,
+    getToken,
+    setToken,
+    removeToken,
+    featchProfileInfo,
+    getProfileData,
+  };
 });
