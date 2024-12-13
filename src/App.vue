@@ -32,6 +32,7 @@ const fetchAuthUser = async () => {
     }
   }
 };
+console.log("Проверка");
 fetchAuthUser();
 
 // onMounted(() => {
