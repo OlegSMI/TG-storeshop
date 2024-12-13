@@ -41,7 +41,7 @@ export const axios: Plugin = {
         //   await authUser(import.meta.env.VITE_INIT_DATA);
         // }
 
-        if (error.response.status === 401 && error.config.url === "/tg_auth") {
+        if (error.config.url === "/tg_auth") {
           removeToken();
           console.log("перенаправляем на нужную страницу");
           router.push("/stub");
