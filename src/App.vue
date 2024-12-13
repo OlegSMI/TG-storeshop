@@ -12,7 +12,7 @@ const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 // const initData = useWebApp().initData;
 const { authUser } = useAuth();
 
-const { getToken, setToken } = useProfileStore();
+const { getToken } = useProfileStore();
 const deviceInfo = computed(() =>
   detectDevice().os === "macos" || detectDevice().os === "ios"
     ? "iosDeviceScheme"
