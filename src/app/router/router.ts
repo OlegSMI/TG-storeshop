@@ -1,6 +1,6 @@
 import HistoryPage from "@pages/HistoryPage/HistoryPage.vue";
 import Main from "@pages/Main/Main.vue";
-import Navigate from "@pages/Navigate/Navigate.vue";
+// import Navigate from "@pages/Navigate/Navigate.vue";
 import Product from "@pages/Product/Product.vue";
 import Profile from "@pages/Profile/Profile.vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
@@ -13,7 +13,7 @@ import StubPage from "@pages/StubPage/StubPage.vue";
 import Task from "@pages/Task/Task.vue";
 
 const routes: Array<RouteRecordRaw> = [
-  { path: "/", component: Navigate },
+  { path: "/", component: Main },
   { path: "/main", component: Main },
   { path: "/all-components", component: AllComponents },
   { path: "/profile", component: Profile },

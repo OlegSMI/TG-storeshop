@@ -11,8 +11,6 @@ export const useAuth = () => {
       },
     });
     setToken(response.data.data.access_token);
-    console.log(getToken());
-    console.log(response.data.data.access_token);
     axiosInstance.defaults.headers.common["x-access-token"] = `${getToken()}`;
     return response.data.data.access_token;
   };
