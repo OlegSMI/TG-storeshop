@@ -8,6 +8,7 @@ import { storeToRefs } from "pinia";
 import { computed, Ref } from "vue";
 import { BackButton, MainButton } from "vue-tg";
 
+console.log("initial");
 const store = useBasketStore();
 
 const { totalItems } = storeToRefs(store) as {

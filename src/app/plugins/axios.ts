@@ -34,12 +34,7 @@ export const axios: Plugin = {
         return response;
       },
       async function (error) {
-        console.log("error response");
         const originalRequest = error.config;
-
-        // if (!getToken()) {
-        //   await authUser(import.meta.env.VITE_INIT_DATA);
-        // }
 
         if (error.config.url === "/tg_auth") {
           removeToken();
@@ -53,6 +48,7 @@ export const axios: Plugin = {
 
           try {
             const initData = useWebApp().initData;
+
             // await authUser(import.meta.env.VITE_INIT_DATA);
             await authUser(initData);
 
@@ -65,7 +61,6 @@ export const axios: Plugin = {
           console.log("перенаправляем на нужную страницу");
           router.push("/stub");
         }
-
         return Promise.reject(error);
       }
     );

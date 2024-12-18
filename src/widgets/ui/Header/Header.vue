@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
+import { useWebApp } from "vue-tg";
 
-import avatarIcon from "./assets/avatar.svg";
 import fence from "./assets/fence.svg";
 import logo from "./assets/logo.svg";
 
@@ -9,6 +9,7 @@ import { useProfileStore } from "@app/store/useProfileStore";
 import Tokens from "@shared/ui/Tokens/Tokens.vue";
 
 const profileStore = useProfileStore();
+const photo_url = useWebApp().initDataUnsafe.user?.photo_url;
 
 onMounted(() => {
   profileStore.getProfileData();
@@ -25,7 +26,7 @@ onMounted(() => {
     <div class="user">
       <Tokens :tokens="profileStore.profileData.amount" />
       <router-link :to="'/profile'" class="avatar">
-        <img :src="avatarIcon" alt="" cl />
+        <img :src="photo_url" alt="" width="32" height="32" />
       </router-link>
     </div>
   </div>
@@ -60,6 +61,7 @@ onMounted(() => {
   height: 32px;
   border-radius: 50%;
   background-color: var(--tertiary-fill-background);
+  overflow: hidden;
 
   &:hover {
     cursor: pointer;
