@@ -36,10 +36,25 @@ const fetchAuthUser = async () => {
 };
 console.log("Проверка логов");
 
+function loadScript(url, callback) {
+  const script = document.createElement("script");
+  script.src = url;
+
+  script.onload = function () {
+    if (callback) callback();
+  };
+
+  document.head.appendChild(script);
+}
+
 window.addEventListener("message", (event) => {
-  const webAppNew = event.data;
-  webApp.value = webAppNew;
-  window.Telegram.WebApp = webAppNew;
+  loadScript("https://telegram.org/js/telegram-web-app.js?56", function () {
+    console.log("Скрипт тг загружен!");
+  });
+  console.log(event.data);
+  // const webAppNew = event.data;
+  // webApp.value = webAppNew;
+  // window.Telegram.WebApp = webAppNew;
   console.log("watcyhing");
   console.log(window.Telegram.WebApp.initData);
   initData.value = useWebApp().initData;
