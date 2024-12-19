@@ -54,7 +54,8 @@ watch(webApp, (newValue) => {
 });
 window.addEventListener("message", (event) => {
   const webAppNew = event.data;
-  console.log(webApp);
+  console.log("tut");
+  console.log(webApp.value);
   webApp.value = webAppNew;
 });
 </script>
