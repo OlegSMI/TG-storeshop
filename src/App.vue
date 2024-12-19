@@ -11,7 +11,7 @@ const loading = ref<boolean>(false);
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 console.log("Приложение запущено ");
 
-const webApp = ref<any>(null);
+// const webApp = ref<any>(null);
 const initData = ref<string>("");
 const { getToken } = useProfileStore();
 const deviceInfo = computed(() =>
@@ -36,7 +36,7 @@ const fetchAuthUser = async () => {
 };
 console.log("Проверка логов");
 
-function loadScript(url, callback) {
+function loadScript(url: any, callback: any) {
   const script = document.createElement("script");
   script.src = url;
 
