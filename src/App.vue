@@ -10,6 +10,7 @@ import { useProfileStore } from "./app/store/useProfileStore";
 const loading = ref<boolean>(false);
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 console.log("Приложение запущено ");
+console.log(window.Telegram.WebApp);
 console.log(useWebApp());
 const initData = useWebApp().initData;
 const { authUser } = useAuth();
@@ -20,6 +21,7 @@ const deviceInfo = computed(() =>
     ? "iosDeviceScheme"
     : "noiosDeviceScheme"
 );
+
 console.log(colorScheme);
 console.log(initData);
 const fetchAuthUser = async () => {
