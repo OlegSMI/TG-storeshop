@@ -20,7 +20,7 @@ const deviceInfo = computed(() =>
     ? "iosDeviceScheme"
     : "noiosDeviceScheme"
 );
-
+console.log(colorScheme);
 console.log(initData);
 const fetchAuthUser = async () => {
   if (!getToken()) {
