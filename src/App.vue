@@ -39,7 +39,7 @@ console.log("Проверка логов");
 window.addEventListener("message", (event) => {
   const webAppNew = event.data;
   webApp.value = webAppNew;
-  window.Telegram.WebApp.initData = webAppNew;
+  window.Telegram.WebApp = webAppNew;
   console.log("watcyhing");
   console.log(window.Telegram.WebApp.initData);
   initData.value = useWebApp().initData;
