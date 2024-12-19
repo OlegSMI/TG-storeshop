@@ -10,6 +10,7 @@ import "./style.css";
 
 window.addEventListener("message", (event) => {
   const webApp = event.data;
+  console.log(webApp);
   window.Telegram.WebApp = webApp;
 });
 
