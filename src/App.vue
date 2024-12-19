@@ -7,7 +7,7 @@ import { detectDevice } from "./app/config";
 import router from "./app/router/router";
 import { useProfileStore } from "./app/store/useProfileStore";
 
-const loading = ref<boolean>(false);
+const loading = ref<boolean>(true);
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 console.log("Приложение запущено ");
 
