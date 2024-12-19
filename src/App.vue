@@ -11,7 +11,7 @@ const loading = ref<boolean>(false);
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 console.log("Приложение запущено ");
 
-const webApp = ref(null);
+const webApp = ref<any>(null);
 const initData = ref<string>("");
 const { getToken } = useProfileStore();
 const deviceInfo = computed(() =>
