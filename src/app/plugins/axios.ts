@@ -61,7 +61,7 @@ export const axios: Plugin = {
         } else if (error.response.status === 401 && originalRequest._retry) {
           removeToken();
           console.log("перенаправляем на нужную страницу");
-          router.push("/stub");
+          // router.push("/stub");
         }
         return Promise.reject(error);
       }
