@@ -11,12 +11,21 @@ const loading = ref<boolean>(false);
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 console.log("Приложение запущено ");
 
+const initData = ref<string>("");
+const { getToken } = useProfileStore();
+const deviceInfo = computed(() =>
+  detectDevice().os === "macos" || detectDevice().os === "ios"
+    ? "iosDeviceScheme"
+    : "noiosDeviceScheme"
+);
+const { authUser } = useAuth();
+
 const fetchAuthUser = async () => {
   if (!getToken()) {
     loading.value = true;
     console.log("выполняем авторизацию");
     try {
-      await authUser(initData);
+      await authUser(initData.value);
       // await authUser(import.meta.env.VITE_INIT_DATA);
       router.push("/");
     } finally {
@@ -26,15 +35,8 @@ const fetchAuthUser = async () => {
 };
 
 watch(window.Telegram.WebApp, () => {
-  const initData = useWebApp().initData;
-  const { authUser } = useAuth();
+  initData.value = useWebApp().initData;
 
-  const { getToken } = useProfileStore();
-  const deviceInfo = computed(() =>
-    detectDevice().os === "macos" || detectDevice().os === "ios"
-      ? "iosDeviceScheme"
-      : "noiosDeviceScheme"
-  );
   const mainButton = window.Telegram.WebApp.MainButton;
 
   const { onThemeChanged } = useWebAppTheme();
