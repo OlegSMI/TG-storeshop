@@ -8,6 +8,11 @@ import "./style.css";
 import { axios } from "@app/plugins/axios";
 import "./style.css";
 
+window.addEventListener("message", (event) => {
+  const webApp = event.data;
+  window.Telegram.WebApp = webApp;
+});
+
 createApp(App)
   .use(router)
   .use(createPinia())
