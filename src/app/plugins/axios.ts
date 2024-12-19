@@ -1,6 +1,5 @@
 import { App, Plugin } from "vue";
 import axiosInstance from "../api/axiosCreate";
-import router from "../router/router";
 // import { useAuth } from "../app/api/authAPI";
 import { useWebApp } from "vue-tg";
 
@@ -39,7 +38,7 @@ export const axios: Plugin = {
         if (error.config.url === "/tg_auth") {
           removeToken();
           console.log("перенаправляем на нужную страницу");
-          router.push("/stub");
+          // router.push("/stub");
           return Promise.reject(error);
         }
 
