@@ -11,6 +11,7 @@ const loading = ref<boolean>(false);
 const colorScheme = computed(() => useWebAppTheme().colorScheme.value);
 console.log("Приложение запущено ");
 
+const webApp = ref<Object>(null);
 const initData = ref<string>("");
 const { getToken } = useProfileStore();
 const deviceInfo = computed(() =>
@@ -35,7 +36,8 @@ const fetchAuthUser = async () => {
 };
 console.log("Проверка логов");
 
-watch(window.Telegram.WebApp, () => {
+watch(webApp, (newValue) => {
+  window.Telegram.WebApp.initData = newValue;
   console.log("watcyhing");
   console.log(window.Telegram.WebApp.initData);
   initData.value = useWebApp().initData;
@@ -48,9 +50,13 @@ watch(window.Telegram.WebApp, () => {
     () =>
       (mainButton.color = colorScheme.value == "dark" ? "#3e88f7" : "#007aff")
   );
+  fetchAuthUser();
 });
-
-fetchAuthUser();
+window.addEventListener("message", (event) => {
+  const webAppNew = event.data;
+  console.log(webApp);
+  webApp.value = webAppNew;
+});
 </script>
 
 <template>
