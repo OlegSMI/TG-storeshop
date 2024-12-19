@@ -35,7 +35,10 @@ const fetchAuthUser = async () => {
 };
 
 watch(window.Telegram.WebApp, () => {
+  console.log("watcyhing");
+  console.log(window.Telegram.WebApp.initData);
   initData.value = useWebApp().initData;
+  console.log(initData.value);
 
   const mainButton = window.Telegram.WebApp.MainButton;
 
