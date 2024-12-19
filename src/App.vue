@@ -46,6 +46,12 @@ const { onThemeChanged } = useWebAppTheme();
 onThemeChanged(
   () => (mainButton.color = colorScheme.value == "dark" ? "#3e88f7" : "#007aff")
 );
+
+window.addEventListener("message", (event) => {
+  console.log(event);
+  const appId = event.data;
+  console.log("Получен app_id:", appId);
+});
 </script>
 
 <template>
