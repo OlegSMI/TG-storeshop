@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Loading from "@shared/ui/Loading/Loading.vue";
-import { computed, ref } from "vue";
+import { computed, getCurrentInstance, ref } from "vue";
 import { useWebApp, useWebAppTheme } from "vue-tg";
 import { useAuth } from "./app/api/authAPI";
 import { detectDevice } from "./app/config";
@@ -48,9 +48,26 @@ function loadScript(url: any, callback: any) {
 }
 
 window.addEventListener("message", (event) => {
+  console.log("opapa");
   loadScript("https://telegram.org/js/telegram-web-app.js?56", function () {
     console.log("Скрипт тг загружен!");
   });
+
+  const instance = getCurrentInstance();
+  const app = instance.appContext.app;
+
+  const addPlugin = () => {
+    const { default: VueTelegramPlugin } = import(VueTelegramPlugin);
+
+    app.use(VueTelegramPlugin);
+
+    // Используем уведомление после регистрации плагина
+    app.config.globalProperties.$notify({
+      title: "Success",
+      text: "Плагин успешно добавлен!",
+    });
+  };
+  addPlugin();
   console.log(event.data);
   // const webAppNew = event.data;
   // webApp.value = webAppNew;
@@ -67,6 +84,7 @@ window.addEventListener("message", (event) => {
     () =>
       (mainButton.color = colorScheme.value == "dark" ? "#3e88f7" : "#007aff")
   );
+
   fetchAuthUser();
 });
 </script>
