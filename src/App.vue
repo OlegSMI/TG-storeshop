@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Loading from "@shared/ui/Loading/Loading.vue";
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import { useWebApp, useWebAppTheme } from "vue-tg";
 import { useAuth } from "./app/api/authAPI";
 import { detectDevice } from "./app/config";
@@ -36,8 +36,10 @@ const fetchAuthUser = async () => {
 };
 console.log("Проверка логов");
 
-watch(webApp, (newValue) => {
-  window.Telegram.WebApp.initData = newValue;
+window.addEventListener("message", (event) => {
+  const webAppNew = event.data;
+  webApp.value = webAppNew;
+  window.Telegram.WebApp.initData = webAppNew;
   console.log("watcyhing");
   console.log(window.Telegram.WebApp.initData);
   initData.value = useWebApp().initData;
@@ -51,12 +53,6 @@ watch(webApp, (newValue) => {
       (mainButton.color = colorScheme.value == "dark" ? "#3e88f7" : "#007aff")
   );
   fetchAuthUser();
-});
-window.addEventListener("message", (event) => {
-  const webAppNew = event.data;
-  console.log("tut");
-  console.log(webApp.value);
-  webApp.value = webAppNew;
 });
 </script>
 
