@@ -33,6 +33,7 @@ const fetchAuthUser = async () => {
     }
   }
 };
+console.log("Проверка логов");
 
 watch(window.Telegram.WebApp, () => {
   console.log("watcyhing");
